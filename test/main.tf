@@ -6,6 +6,7 @@ terraform {
     }
   }
 }
+provider "rafay" {}
 resource "null_resource" "cluster" {
 
   provisioner "local-exec" {
