@@ -7,12 +7,14 @@ terraform {
   }
 }
 provider "rafay" {}
+
 resource "null_resource" "cluster" {
 
   provisioner "local-exec" {
     command = "echo hi"
   }
 }
+
 resource "rafay_project" "vijaysdemoproject1" {
   metadata {
     name        = "vijaysdemoproject1"
@@ -22,6 +24,7 @@ resource "rafay_project" "vijaysdemoproject1" {
     default = false
   }
 }
+
 output "dummyoutput" {
   value       = "dummyoutput"
 }
