@@ -1,12 +1,3 @@
-terraform {
-  required_providers {
-    rafay = {
-      version = ">= 0.1"
-      source  = "RafaySystems/rafay"
-    }
-  }
-}
-provider "rafay" {}
 
 resource "null_resource" "cluster" {
 
@@ -15,15 +6,6 @@ resource "null_resource" "cluster" {
   }
 }
 
-resource "rafay_project" "vijaysdemoproject1" {
-  metadata {
-    name        = "vijaysdemoproject1"
-    description = "terraform project"
-  }
-  spec {
-    default = false
-  }
-}
 
 output "dummyoutput" {
   value       = "dummyoutput"
