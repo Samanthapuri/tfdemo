@@ -1,0 +1,18 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  # TENANT_NAME gets (got) replaced with the tenant name within the Resource Template in Rafay.
+  name: fonix
+  labels:
+    # While this is a ClusterRole, Rafay uses a custom label (k8smgmt.io/bindingtype: rolebinding)
+    # to create the RoleBindings.
+    # This binds the ClusterRole with a RoleBinding (namespace scoped) instead of a ClusterRoleBinding.
+    # This make it so the SA only has access to the namespace it is bound to.
+    # Rafay also, only, creates RoleBindings in the namespace that is configured within Rafay.
+    # See:
+    #  https://docs.rafay.co/security/custom_ztka/custom_ztka_overview/#scenarios
+    k8smgmt.io/bindingtype: rolebinding
+rules:
+  - apiGroups: ["*"]
+    resources: ["*"]
+    verbs: ["*"]
