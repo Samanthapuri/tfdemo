@@ -1,0 +1,45 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: Environment
+metadata:
+  labels:
+    organizationId: pkv3yem
+    projectId: krervwm
+    serviceName: vijaysamanthapuri-frav-custom-app
+    workspace: developers-frav
+  name: vijaysamanthapuri-frav-custom-app-0b7es
+  project: vijaysamanthapuri-frav
+spec:
+  agents:
+  - name: em-gitops-agent
+    version: r3.3.0
+  template:
+    name: vijaysamanthapuri-frav-et-intermediate
+    version: v1
+    versionState: unspecified
+  variables:
+  - name: input_name
+    options:
+      displayMetadata:
+        disabled: false
+        section: ""
+        sectionDescription: ""
+        tooltip: ""
+        weight: ""
+      override:
+        type: allowed
+      required: true
+    value: You money making machine
+    valueType: text
+  - name: cluster_name
+    options:
+      displayMetadata:
+        disabled: false
+        section: ""
+        sectionDescription: ""
+        tooltip: ""
+        weight: ""
+      override:
+        type: allowed
+      required: true
+    value: vijaysamanthapuri-frav-c1
+    valueType: text

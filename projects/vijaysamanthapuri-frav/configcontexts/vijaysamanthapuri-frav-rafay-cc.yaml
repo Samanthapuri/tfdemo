@@ -23,7 +23,7 @@ spec:
     options:
       override:
         type: notallowed
-    value: defaultproject
+    value: vijaysamanthapuri-frav
   - key: RCTL_REST_ENDPOINT
     options:
       override:
