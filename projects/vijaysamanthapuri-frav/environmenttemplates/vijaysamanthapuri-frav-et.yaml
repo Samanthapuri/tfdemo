@@ -19,5 +19,18 @@ spec:
     resourceOptions:
       version: v1
     type: dynamic
+  variables:
+  - name: username
+    options:
+      displayMetadata:
+        disabled: false
+        section: ""
+        sectionDescription: ""
+        tooltip: ""
+        weight: ""
+      override:
+        type: allowed
+      required: true
+    valueType: text
   version: v1
   versionState: draft
