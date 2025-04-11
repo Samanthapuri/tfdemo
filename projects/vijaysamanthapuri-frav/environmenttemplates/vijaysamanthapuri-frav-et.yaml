@@ -5,12 +5,19 @@ metadata:
   project: vijaysamanthapuri-frav
 spec:
   agents:
-    - name: em-gitops-agent
+  - name: em-gitops-agent
   resources:
-    - kind: resourcetemplate
-      name: vijaysamanthapuri-frav-rt
-      resourceOptions:
-        version: v1
-      type: dynamic
+  - kind: resourcetemplate
+    name: vijaysamanthapuri-frav-rt
+    resourceOptions:
+      version: v1
+    type: dynamic
+  - dependsOn:
+    - name: vijaysamanthapuri-frav-rt
+    kind: resourcetemplate
+    name: vijaysamanthapuri-frav-rt-python
+    resourceOptions:
+      version: v1
+    type: dynamic
   version: v1
   versionState: draft
