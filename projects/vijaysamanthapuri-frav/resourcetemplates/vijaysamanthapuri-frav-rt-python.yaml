@@ -1,0 +1,21 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: ResourceTemplate
+metadata:
+  name: vijaysamanthapuri-frav-rt-python
+  project: vijaysamanthapuri-frav
+spec:
+  provider: custom
+  providerOptions:
+    custom:
+      tasks:
+        - agents:
+            - name: em-gitops-agent
+          executeOnce: true
+          name: python-code
+          onFailure: unspecified
+          options: {}
+          type: workflowHandler
+          workflowHandler:
+            name: vijaysamanthapuri-frav-wh
+  version: v1
+  versionState: draft

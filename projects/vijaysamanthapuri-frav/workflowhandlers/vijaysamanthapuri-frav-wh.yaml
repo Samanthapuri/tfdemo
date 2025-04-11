@@ -1,0 +1,15 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: WorkflowHandler
+metadata:
+  name: vijaysamanthapuri-frav-wh
+  project: vijaysamanthapuri-frav
+spec:
+  config:
+    function:
+      language: python
+      name: vijaysamanthapuri-frav-wh
+      skipBuild: false
+      source: "from typing import *\nfrom logging import Logger\n\ndef handle(logger: Logger,request: Dict[str, Any]) -> Dict[str, Any]:\n  logger.info(f\"inside function handler, request: {request}\", extra={\"request\": request})\n\t\n  logger.info(\"Hello world... \")\n\t\n  return {\n    \"output\": \"Hello world\"\n  }\n"
+      targetPlatforms:
+        - linux/amd64
+    type: function
