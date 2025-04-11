@@ -1,0 +1,10 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: Environment
+metadata:
+  name: vijaysamanthapuri-frav-env1
+  project: vijaysamanthapuri-frav
+spec:
+  template:
+    name: vijaysamanthapuri-frav-et
+    version: v1
+    versionState: unspecified
