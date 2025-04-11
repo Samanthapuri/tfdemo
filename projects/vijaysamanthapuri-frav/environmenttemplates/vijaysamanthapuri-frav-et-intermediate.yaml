@@ -1,0 +1,53 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: EnvironmentTemplate
+metadata:
+  name: vijaysamanthapuri-frav-et-intermediate
+  project: vijaysamanthapuri-frav
+spec:
+  agents:
+    - name: em-gitops-agent
+  resources:
+    - kind: resourcetemplate
+      name: vijaysamanthapuri-frav-rt-intermediate
+      resourceOptions:
+        version: v1
+      type: dynamic
+  variables:
+    - name: input_name
+      options:
+        displayMetadata:
+          disabled: false
+          section: ""
+          sectionDescription: ""
+          tooltip: ""
+          weight: ""
+        override:
+          type: allowed
+        required: true
+      valueType: text
+    - name: project
+      options:
+        displayMetadata:
+          disabled: false
+          section: ""
+          sectionDescription: ""
+          tooltip: ""
+          weight: ""
+        override:
+          type: notallowed
+      value: $(environment.project.name)$
+      valueType: expression
+    - name: cluster_name
+      options:
+        displayMetadata:
+          disabled: false
+          section: ""
+          sectionDescription: ""
+          tooltip: ""
+          weight: ""
+        override:
+          type: allowed
+        required: true
+      valueType: text
+  version: v1
+  versionState: draft
