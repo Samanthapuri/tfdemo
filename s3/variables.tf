@@ -6,4 +6,16 @@ description = "Name of the bucket. Cannot be clubbed with bucket_prefix"
 variable "bucket_prefix" {
 type = string
 description = "bucket_prefix value to be used. Cannot be clubbed with bucket_prefix"
+
+variable "force_destroy" {
+type = boolean
+description = "bucket_prefix value to be used. Cannot be clubbed with bucket_prefix"
+}  
+var "object_lock_enabled" {
+type = boolean
+description = "bucket_prefix value to be used. Cannot be clubbed with bucket_prefix"
+}
+var "tags" {
+type = map(string)
+description = "tags for s3 bucket"
 }
