@@ -10,10 +10,12 @@ description = "bucket_prefix value to be used. Cannot be clubbed with bucket_pre
 variable "force_destroy" {
 type = bool
 description = "bucket_prefix value to be used. Cannot be clubbed with bucket_prefix"
+default = true
 }  
 var "object_lock_enabled" {
 type = bool
 description = "bucket_prefix value to be used. Cannot be clubbed with bucket_prefix"
+default = true
 }
 var "tags" {
 type = map(string)
