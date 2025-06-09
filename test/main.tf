@@ -8,9 +8,9 @@ resource "null_resource" "cluster" {
 
 
 output "dummyoutput" {
-  value       = "dummyoutput"
+  value       = "randomoutput"
 }
 
 output "dummyoutput1" {
-  value       = "dummyoutput1"
+  value       = "randomoutput1"
 }
