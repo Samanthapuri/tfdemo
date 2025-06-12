@@ -14,7 +14,7 @@ provider "terracurl" {
 }
  
 data "terracurl_request" "token" {
-  for_each = toset(var.environments)
+  for_each = toset(var.environment)
   name           = each.key
   url            = "https://console.rafay.dev/apis/eaas.envmgmt.io/v1/projects/defaultproject/environments/${each.key}/resources?all=true"
   method         = "GET"
