@@ -4,9 +4,6 @@ terraform {
       source = "devops-rob/terracurl"
       version = "1.0.0"
     }
-    jqchain = {
-      source = "parziwal/jqchain"
-    }
 }
 }
 
