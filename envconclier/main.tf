@@ -22,7 +22,11 @@ data "terracurl_request" "token" {
 }
 
 
-output "test1" {
+/* output "test1" {
 value = { for k,out in data.terracurl_request.token : k => jsondecode(out.response) }
-} 
+} */
+
+output "test1" {
+value = "test"
+}
 
