@@ -7608,8 +7608,5 @@ value = [  {
     "name": "vm-2",
     "size": "Standard_DS1_v2"
   },
-  {
-    "image": "test"
-  },
 ]
 }
