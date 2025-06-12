@@ -7610,8 +7610,7 @@ value = [  {
   },
   {
     "image": "UbuntuServer:18.04-LTS",
-    "name": "vm-2",
-    "size": "Standard_DS1_v2"
+    "name": "vm-2"
   },
 ]
 }
