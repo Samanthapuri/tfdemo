@@ -17,7 +17,7 @@ provider "aws" {
 }
 
 resource "aws_instance" "example" {
-  count = 2
+  count = var.instance_count
   ami           = "ami-05f991c49d264708f"
   instance_type = "t3.xlarge"
   subnet_id     = var.env == "test" ? var.subnet[tonumber("${count.index % length(var.subnet)}")] : ( var.env == "dev" ? var.newsubnet[tonumber("${count.index % length(var.newsubnet)}")] : null) 

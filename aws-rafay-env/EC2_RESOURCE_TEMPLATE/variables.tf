@@ -6,6 +6,10 @@ variable "newsubnet" {
 default = ["subnet-01191eb45bbc20289", "subnet-0c2ace7c1bd6f389d", "subnet-0b5454e3766e256cf"]
 }
 
+variable "instance_count" {
+type = number
+}
+
 variable "env" {
 default = "test"
 }
