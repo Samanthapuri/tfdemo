@@ -18,5 +18,5 @@ resource "aws_route53_record" "www" {
   name    = var.names[count.index]
   type    = "A"
   ttl     = 300
-  records = var.records[count.index]
+  records = tolist(["${var.records[count.index}"])
 }
