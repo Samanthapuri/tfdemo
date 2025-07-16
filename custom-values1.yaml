@@ -1,0 +1,34 @@
+User:
+  name: User2
+
+replicaCount: 2
+
+image:
+  repository: nginx:latest 
+
+agents:
+  image:
+    doNotCheckTag: false
+    tag: 6.-jmx
+
+labels:
+  app: web-app
+  type: frontend
+
+serviceAccount:
+  enabled: true
+  name: demo-sa
+
+service:
+  protocol: TCP
+  type: ClusterIP 
+  port: 80
+  labels:
+    name: webapp-service
+
+deployment:
+  port: 80
+
+http_proxy: ""
+https_proxy: ""
+no_proxy: ""
