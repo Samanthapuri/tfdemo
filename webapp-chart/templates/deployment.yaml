@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name}}-deployment
+  labels:
+    testapp: "true"
+spec:
+  replicas: {{ .Values.replicaCount}}
+  selector:
+    matchLabels:
+      testapp: "true"
+  template:
+    metadata:
+      labels:
+        testapp: "true"
+    spec:
+      serviceAccountName: {{ .Values.serviceAccount.name }}
+      containers:
+      - name: {{ .Release.Name}}
+        image: {{ .Values.image.repository}}
+        ports:
+        - containerPort: {{ .Values.deployment.port}}
+        volumeMounts:
+          - name: index-cm
+            mountPath: /usr/share/nginx/html
+      volumes:
+      - name: index-cm
+        configMap:
+          name: index-cm
