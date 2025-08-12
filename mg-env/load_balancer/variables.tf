@@ -30,6 +30,14 @@ variable "load_balancer_access_logs_s3_bucket_prefix" {
 variable "load_balancer_action_type" {
   description = "Type of routing action. Valid values are forward, redirect, fixed-response, authenticate-cognito and authenticate-oidc."
 }
+variable "create_load_balancer_dns_record" {
+description = "load balancer DNS name"
+default     = true
+}
+
+variable "load_balancer_dns_name" {
+description = "load balancer DNS name"
+}
 
 variable "load_balancer_enable_cross_zone_load_balancing" {
   description = "Enables or disables cross-zone load balancing of the load balancer. This is a network load balancer feature."
