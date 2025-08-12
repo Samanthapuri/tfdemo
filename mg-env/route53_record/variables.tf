@@ -30,3 +30,12 @@ variable "type" {
   description = "The record type."
   default = "A"
 }
+
+variable "create_load_balancer_dns_record" {
+description = "load balancer DNS name"
+default     = true
+}
+
+variable "load_balancer_dns_name" {
+description = "load balancer DNS name"
+}
