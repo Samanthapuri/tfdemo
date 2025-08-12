@@ -58,5 +58,5 @@ resource "aws_instance" "this" {
   tags                   = merge(tomap({"Name"= var.name}), var.tags)
   tenancy                = var.tenancy  
   volume_tags            = var.volume_tags
-  vpc_security_group_ids = tolist(["${var.environment == "mgi-sandbox" ? "sg-026d698372b9e7a76" : null}"])
+  vpc_security_group_ids = var.vpc_security_group_ids
 }
