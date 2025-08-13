@@ -1,3 +1,8 @@
+output "load_balancer_zone" {
+description = "zone of the load balancer"
+value = aws_lb.load_balancer.zone_id
+}
+
 output "load_balancer_arn" {
   description = "ARN of the load balancer"
   value       = aws_lb.load_balancer.arn
