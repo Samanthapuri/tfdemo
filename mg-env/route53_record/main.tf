@@ -21,7 +21,7 @@ resource "aws_route53_record" "this" {
   zone_id = data.aws_route53_zone.this.zone_id
 }
 
-resource "aws_route53_record" "this" {
+resource "aws_route53_record" "lb" {
   type    = var.type
   zone_id = data.aws_route53_zone.this.zone_id
   name    = var.load_balancer_dns_record_name                          
