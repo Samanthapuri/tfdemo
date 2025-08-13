@@ -39,3 +39,12 @@ default     = true
 variable "load_balancer_dns_name" {
 description = "load balancer DNS name"
 }
+
+variable "load_balancer_zone_id" {
+description = "load balancer DNS name"
+}
+
+
+variable "load_balancer_dns_record_name" {
+description = "load balancer DNS record name"
+}
