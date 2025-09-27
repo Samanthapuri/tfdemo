@@ -47,9 +47,6 @@ resource "rafay_eks_cluster" "eks-cluster-1" {
         private_access = true
         public_access  = true
       }
-      nat {
-        gateway = "Single"
-      }
     }
     managed_nodegroups {
       name       = "ng-1"
