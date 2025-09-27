@@ -11,7 +11,7 @@ resource "rafay_eks_cluster" "eks-cluster-1" {
   cluster {
     kind = "Cluster"
     metadata {
-      name    = "vijayseks0927253"
+      name    = "vijayseks0927254"
       project = "defaultproject"
       labels = {
        "test" = "testvalue1"
@@ -30,7 +30,7 @@ resource "rafay_eks_cluster" "eks-cluster-1" {
     apiversion = "rafay.io/v1alpha5"
     kind       = "ClusterConfig"
     metadata {
-      name    = "vijayseks0927253"
+      name    = "vijayseks0927254"
       region  = "us-west-2"
       version = "1.31"
     tags = {
