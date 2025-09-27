@@ -59,7 +59,6 @@ resource "rafay_eks_cluster" "eks-cluster-1" {
       volume_size      = 80
       volume_type      = "gp3"
       private_networking = true
-      override_bootstrap_command = "[Bottlerocket]"
     tags = {
      "env" = "cs-demo"
      "email" = "vijaysamanthapuri@rafay.co"
