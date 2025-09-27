@@ -53,7 +53,7 @@ resource "rafay_eks_cluster" "eks-cluster-1" {
     }
     managed_nodegroups {
       name       = "ng-1"
-      ami = "ami-06bff71ffa7872add"
+      ami_family = "AmazonLinux2"
       instance_type    = "t3.xlarge"
       desired_capacity = 2
       min_size         = 2
