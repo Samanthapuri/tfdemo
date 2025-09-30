@@ -14,7 +14,7 @@ resource "rafay_eks_cluster" "eks-cluster-1" {
       name    = var.name
       project = "defaultproject"
       labels = {
-       "test" = "testvalue1"
+       "test" = "testvalue12"
       }
     }
     spec {
@@ -50,7 +50,7 @@ resource "rafay_eks_cluster" "eks-cluster-1" {
     }
     managed_nodegroups {
       name       = "ng-1"
-      ami = "ami-03ecff356f6b362a6"
+      ami = "ami-037440bcaeec34adf"
        iam {
         instance_role_arn = "arn:aws:iam::679196758854:role/vijaysworkerrole"
       }
