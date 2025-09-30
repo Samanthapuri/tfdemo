@@ -59,7 +59,6 @@ resource "rafay_eks_cluster" "eks-cluster-1" {
       desired_capacity = 2
       min_size         = 2
       max_size         = 2
-      version          = "1.31"
       volume_size      = 80
       volume_type      = "gp3"
       private_networking = true
