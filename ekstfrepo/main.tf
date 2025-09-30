@@ -51,6 +51,9 @@ resource "rafay_eks_cluster" "eks-cluster-1" {
     managed_nodegroups {
       name       = "ng-1"
       ami_family = "AmazonLinux2"
+       iam {
+        instance_role_arn = "arn:aws:iam::679196758854:role/vijaysworkerrole"
+      }
       instance_type    = "t3.xlarge"
       desired_capacity = 2
       min_size         = 2
