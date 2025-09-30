@@ -14,7 +14,7 @@ resource "rafay_eks_cluster" "eks-cluster-1" {
       name    = var.name
       project = "defaultproject"
       labels = {
-       "test" = "testvalue123"
+       "test" = "testvalue12"
       }
     }
     spec {
