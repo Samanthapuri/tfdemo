@@ -50,10 +50,11 @@ resource "rafay_eks_cluster" "eks-cluster-1" {
     }
     managed_nodegroups {
       name       = "ng-1"
-      ami_family = "AmazonLinux2"
+      ami = "ami-03ecff356f6b362a6"
        iam {
         instance_role_arn = "arn:aws:iam::679196758854:role/vijaysworkerrole"
       }
+      override_bootstrap_command = "[Bottlerocket]"
       instance_type    = "t3.xlarge"
       desired_capacity = 2
       min_size         = 2
