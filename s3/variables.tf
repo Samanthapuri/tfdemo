@@ -21,4 +21,7 @@ default = true
 variable "tags" {
 type = map(string)
 description = "tags for s3 bucket"
+default = {
+"test" = "testvalue"
+}
 }
