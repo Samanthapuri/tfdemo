@@ -25,3 +25,4 @@ default = {
 "test" = "testvalue"
 }
 }
+variable "testobj" {}
