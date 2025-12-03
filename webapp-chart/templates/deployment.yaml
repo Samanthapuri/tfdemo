@@ -4,6 +4,7 @@ metadata:
   name: {{ .Release.Name}}-deployment
   labels:
     testapp: "true"
+    fm-test: "true"
 spec:
   replicas: {{ .Values.replicaCount}}
   selector:
