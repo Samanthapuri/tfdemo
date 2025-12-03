@@ -5,6 +5,7 @@ metadata:
   labels:
     testapp: "true"
     fm-test: "true"
+    envlabel: $(#environment["optouttest"].dummyoutput)$
 spec:
   replicas: {{ .Values.replicaCount}}
   selector:
