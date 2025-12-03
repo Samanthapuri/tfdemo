@@ -1,0 +1,20 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Addon
+metadata:
+  annotations:
+    rafay.dev/audit_type: BROWSER||Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)
+      AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36
+    rafay.dev/audit_user: vijaysamanthapuri@rafay.co
+    rafay.dev/audit_user_group: Organization Admins,Organization Read Only
+  name: test-configmap
+  project: defaultproject
+spec:
+  artifact:
+    artifact:
+      paths:
+      - name: file://artifacts/test-configmap/awscli.yaml
+    type: Yaml
+  namespace: defaultns
+  sharing: {}
+  version: v5
+  versionState: active

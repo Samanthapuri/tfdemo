@@ -1,0 +1,34 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: Environment
+metadata:
+  name: test-env-schd-one
+  project: defaultproject
+spec:
+  agents:
+  - name: nirav-agent
+  schedule_optouts:
+  - duration: 170m
+    name: destroy-tf-ec2-instance
+  secret:
+    name: file://artifacts/test-env-schd-one/sealed-secret.yaml
+  template:
+    name: staggeredtest-1
+    version: v4
+    versionState: unspecified
+  variables:
+  - name: password
+    options:
+      mask: true
+      override:
+        type: allowed
+      required: true
+      sensitive: true
+    value: sealed://variables.0.
+    valueType: text
+  - name: username
+    options:
+      override:
+        type: allowed
+      required: true
+    value: vijays
+    valueType: text

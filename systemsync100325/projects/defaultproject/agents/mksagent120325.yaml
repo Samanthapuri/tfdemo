@@ -1,0 +1,11 @@
+apiVersion: gitops.k8smgmt.io/v3
+kind: Agent
+metadata:
+  name: mksagent120325
+  project: defaultproject
+spec:
+  active: true
+  cluster:
+    name: vijaysmks021225
+  type: Cluster
+  version: r3.7.0

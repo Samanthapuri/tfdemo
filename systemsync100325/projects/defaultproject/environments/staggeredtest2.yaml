@@ -1,0 +1,32 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: Environment
+metadata:
+  name: staggeredtest2
+  project: defaultproject
+spec:
+  schedule_optouts:
+  - duration: 1h
+    name: destroy-tf-ec2-instance
+  secret:
+    name: file://artifacts/staggeredtest2/sealed-secret.yaml
+  template:
+    name: staggeredtest
+    version: v1
+    versionState: unspecified
+  variables:
+  - name: username
+    options:
+      override:
+        type: allowed
+      required: true
+    value: vijays
+    valueType: text
+  - name: password
+    options:
+      mask: true
+      override:
+        type: allowed
+      required: true
+      sensitive: true
+    value: sealed://variables.1.
+    valueType: text

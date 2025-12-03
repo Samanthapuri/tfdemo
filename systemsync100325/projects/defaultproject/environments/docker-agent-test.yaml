@@ -1,0 +1,12 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: Environment
+metadata:
+  name: docker-agent-test
+  project: defaultproject
+spec:
+  agents:
+  - name: mydockeragent
+  template:
+    name: outputtestenvtemp
+    version: v1
+    versionState: unspecified

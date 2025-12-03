@@ -1,0 +1,20 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Addon
+metadata:
+  annotations:
+    rafay.dev/audit_type: CLI||RCTL/r3.5.0 darwin/amd64
+    rafay.dev/audit_user: vijaysamanthapuri@rafay.co
+    rafay.dev/audit_user_group: Organization Admins,Organization Read Only,
+  name: helmaddon1234
+  project: defaultproject
+spec:
+  artifact:
+    artifact:
+      chartName: webapp-python
+      chartVersion: 9.0.0
+      repository: testhelmrepo
+    type: Helm
+  namespace: defaultns
+  sharing: {}
+  version: v5
+  versionState: active

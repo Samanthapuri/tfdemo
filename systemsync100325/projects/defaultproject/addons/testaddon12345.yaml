@@ -1,0 +1,15 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Addon
+metadata:
+  name: testaddon12345
+  project: defaultproject
+spec:
+  artifact:
+    artifact:
+      chartPath:
+        name: file://artifacts/testaddon12345/vault-0.28.0.tgz
+    type: Helm
+  namespace: ankitns
+  sharing: {}
+  version: v1
+  versionState: active

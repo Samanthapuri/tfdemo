@@ -1,0 +1,24 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Addon
+metadata:
+  annotations:
+    rafay.dev/audit_type: BROWSER||Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)
+      AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36
+    rafay.dev/audit_user: vijaysamanthapuri@rafay.co
+    rafay.dev/audit_user_group: Organization Admins,Organization Read Only
+  description: jdevdemo
+  name: aws-alb
+  project: defaultproject
+spec:
+  artifact:
+    artifact:
+      chartName: aws-load-balancer-controller
+      chartVersion: 1.11.0
+      repository: aws-alb
+      valuesPaths:
+      - name: file://artifacts/aws-alb/values.yaml
+    type: Helm
+  namespace: kube-system
+  sharing: {}
+  version: v2.11-1
+  versionState: active

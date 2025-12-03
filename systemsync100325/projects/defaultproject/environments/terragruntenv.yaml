@@ -1,0 +1,10 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: Environment
+metadata:
+  name: terragruntenv
+  project: defaultproject
+spec:
+  template:
+    name: terragrunt
+    version: v1
+    versionState: unspecified

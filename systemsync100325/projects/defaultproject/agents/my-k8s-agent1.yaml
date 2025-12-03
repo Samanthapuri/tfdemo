@@ -1,0 +1,19 @@
+apiVersion: gitops.k8smgmt.io/v3
+kind: Agent
+metadata:
+  name: my-k8s-agent1
+  project: defaultproject
+spec:
+  active: true
+  cluster:
+    name: vijayseks050520254
+  config:
+    concurrency: 77
+    environment:
+      numWorkers: 123
+    kubernetes:
+      limits:
+        cpu: 450m
+        memory: 1234Mi
+  type: Cluster
+  version: r3.5.0

@@ -1,0 +1,17 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: Environment
+metadata:
+  name: custom-s3-bucket
+  project: defaultproject
+spec:
+  template:
+    name: s3-template
+    version: v1
+    versionState: unspecified
+  variables:
+  - name: bucket
+    options:
+      override:
+        type: allowed
+    value: vijayss3bucket10012025
+    valueType: text

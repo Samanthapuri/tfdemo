@@ -1,0 +1,15 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Addon
+metadata:
+  name: addon2
+  project: defaultproject
+spec:
+  artifact:
+    artifact:
+      chartPath:
+        name: file://artifacts/addon2/rafay-prometheus.tgz
+    type: Helm
+  namespace: istio-system
+  sharing: {}
+  version: v1
+  versionState: active

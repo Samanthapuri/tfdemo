@@ -1,0 +1,18 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: Environment
+metadata:
+  name: ekscluster-new08
+  project: defaultproject
+spec:
+  template:
+    name: ekscluster
+    version: v1
+    versionState: unspecified
+  variables:
+  - name: name
+    options:
+      override:
+        type: allowed
+      required: true
+    value: vijayseks0930252
+    valueType: text

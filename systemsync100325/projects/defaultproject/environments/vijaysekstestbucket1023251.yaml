@@ -1,0 +1,49 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: Environment
+metadata:
+  name: vijaysekstestbucket1023251
+  project: defaultproject
+spec:
+  template:
+    name: s3-trf-template
+    version: v1
+    versionState: unspecified
+  variables:
+  - name: bucket_prefix
+    options:
+      override:
+        type: allowed
+      required: true
+    value: '""'
+    valueType: text
+  - name: bucket
+    options:
+      override:
+        type: allowed
+      required: true
+    value: vijaysekstestbucket1023251
+    valueType: text
+  - name: testobj
+    options:
+      override:
+        type: allowed
+    value: |-
+      [
+        {
+          name          = "app-server-1"
+          instance_type = "t3.medium"
+          tags = {
+            environment = "dev"
+            role        = "frontend"
+          }
+        },
+        {
+          name          = "app-server-2"
+          instance_type = "t3.large"
+          tags = {
+            environment = "prod"
+            role        = "backend"
+          }
+        }
+      ]
+    valueType: hcl

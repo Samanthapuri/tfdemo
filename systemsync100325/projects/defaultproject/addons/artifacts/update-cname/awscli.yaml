@@ -1,0 +1,63 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: awscli 
+rules:
+- apiGroups: [""] # "" indicates the core API group
+  resources: ["services"]
+  verbs: ["get", "watch", "list"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+# This role binding allows "jane" to read pods in the "default" namespace.
+# You need to already have a Role named "pod-reader" in that namespace.
+kind: ClusterRoleBinding
+metadata:
+  name: awscli
+subjects:
+- kind: ServiceAccount
+  name: awscli
+  namespace: kube-system
+roleRef:
+  # "roleRef" specifies the binding to a Role / ClusterRole
+  kind: ClusterRole
+  name: awscli # this must match the name of the Role or ClusterRole you wish to bind to
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: awcli 
+spec:
+  parallelism: 1    
+  completions: 1    
+  template:         
+    metadata:
+      name: awscli 
+    spec:
+      serviceAccountName: awscli
+      volumes:
+      - name: scripts 
+        configMap:
+          name: scripts 
+      containers:
+      - name: awscli
+        image: amazon/aws-cli:2.25.1
+        volumeMounts:
+          - mountPath: /tmp/scripts
+            name: scripts
+        command:
+        - /bin/bash
+        - -c
+        - |
+          /bin/bash /tmp/scripts/udate-hostedzone.sh
+      restartPolicy: Never
+---
+apiVersion: v1
+data:
+  udate-hostedzone.sh: |
+    #!/bin/bash
+    LBHOSTNAME=$(curl -H "Authorization: Bearer $(cat /var/run/secrets/kubernetes.io/serviceaccount/token)" https://kubernetes.default.svc/api/v1/namespaces/kube-system/services/ingress-nginx-controller -k -s | grep hostname | grep k8s | grep amazonaws | awk '{print $2}' | awk -F'"' '{print $2}')
+    aws route53 change-resource-record-sets --hosted-zone-id  Z0021774186A1QPEJ7KAO --change-batch "{\"Comment\": \"Creating an A record\",\"Changes\": [{\"Action\": \"UPSERT\",\"ResourceRecordSet\": {\"Name\": \"*.saasdemos.controller.gorafay.net.\",\"Type\": \"CNAME\",\"TTL\": 300,\"ResourceRecords\": [{\"Value\": \"${LBHOSTNAME}\"}]}}]}"
+kind: ConfigMap
+metadata:
+  name: scripts

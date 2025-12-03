@@ -1,0 +1,27 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: Environment
+metadata:
+  name: vijayss3buckettf10072025
+  project: defaultproject
+spec:
+  agents:
+  - name: mksagent191125
+  template:
+    name: s3-trf-template
+    version: v1
+    versionState: unspecified
+  variables:
+  - name: bucket
+    options:
+      override:
+        type: allowed
+      required: true
+    value: vijayss3buckettf10072025
+    valueType: text
+  - name: bucket_prefix
+    options:
+      override:
+        type: allowed
+      required: true
+    value: '""'
+    valueType: text

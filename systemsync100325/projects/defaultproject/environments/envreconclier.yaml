@@ -1,0 +1,19 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: Environment
+metadata:
+  name: envreconclier
+  project: defaultproject
+spec:
+  template:
+    name: envconciler
+    version: v1
+    versionState: unspecified
+  variables:
+  - name: environment
+    options:
+      description: list of environments to aggregate
+      override:
+        type: allowed
+      required: true
+    value: '["env1"]'
+    valueType: hcl

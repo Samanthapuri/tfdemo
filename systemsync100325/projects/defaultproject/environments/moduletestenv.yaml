@@ -1,0 +1,34 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: Environment
+metadata:
+  name: moduletestenv
+  project: defaultproject
+spec:
+  agents:
+  - name: eksagent5525
+  template:
+    name: moduletestet
+    version: v1
+    versionState: unspecified
+  variables:
+  - name: bucket
+    options:
+      override:
+        type: allowed
+      required: true
+    value: vijaysrandomtest053025
+    valueType: json
+  - name: bucket_prefix
+    options:
+      override:
+        type: allowed
+      required: true
+    value: testdata
+    valueType: json
+  - name: tags
+    options:
+      override:
+        type: allowed
+      required: true
+    value: '{ "testkey" = "testvalue" }'
+    valueType: hcl

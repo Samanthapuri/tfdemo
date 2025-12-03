@@ -1,0 +1,12 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: Environment
+metadata:
+  name: ekscluster-new5
+  project: defaultproject
+spec:
+  agents:
+  - name: mksagent
+  template:
+    name: ekscluster
+    version: v1
+    versionState: unspecified

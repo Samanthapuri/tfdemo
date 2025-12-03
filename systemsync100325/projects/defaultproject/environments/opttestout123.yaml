@@ -1,0 +1,20 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: Environment
+metadata:
+  name: opttestout123
+  project: defaultproject
+spec:
+  agents:
+  - name: mksagent120325
+  template:
+    name: optouttest
+    version: v6
+    versionState: unspecified
+  variables:
+  - name: username
+    options:
+      override:
+        type: allowed
+      required: true
+    value: vijays
+    valueType: text

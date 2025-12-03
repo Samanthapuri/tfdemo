@@ -1,0 +1,281 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: Environment
+metadata:
+  name: ec2-test-vijays
+  project: defaultproject
+spec:
+  template:
+    name: mg-ec2-et
+    version: v1
+    versionState: unspecified
+  variables:
+  - name: load_balancer_target_type
+    options:
+      description: Type of target that you must specify when registering targets with
+        this target group.
+      override:
+        type: allowed
+      required: true
+    value: instance
+    valueType: text
+  - name: load_balancer_action_type
+    options:
+      description: Type of routing action. Valid values are forward, redirect, fixed-response,
+        authenticate-cognito and authenticate-oidc.
+      override:
+        type: allowed
+      required: true
+    value: forward
+    valueType: text
+  - name: rbd_volume_size
+    options:
+      description: The size of the root block device in GBs.
+      override:
+        type: allowed
+      required: true
+    value: "30"
+    valueType: json
+  - name: instance_dns_names
+    options:
+      description: Instance DNS count
+      override:
+        type: allowed
+      required: true
+    value: '["testserver"]'
+    valueType: hcl
+  - name: ami
+    options:
+      description: ID of AMI to use for the instance
+      override:
+        type: allowed
+      required: true
+    value: ami-05f991c49d264708f
+    valueType: text
+  - name: domain
+    options:
+      description: The name of the hosted zone.
+      override:
+        type: allowed
+      required: true
+    value: test.vijays.mydomain.loc
+    valueType: text
+  - name: load_balancer_target_group_health_check_port
+    options:
+      description: Port to use to connect with the target. Valid values are either
+        ports 1-65535, or traffic-port.
+      override:
+        type: allowed
+      required: true
+    value: "22"
+    valueType: json
+  - name: environment
+    options:
+      displayMetadata:
+        disabled: false
+        section: ""
+        sectionDescription: ""
+        tooltip: ""
+        weight: ""
+      override:
+        selectors:
+        - resource.mg-ec2-rt.environment
+        - resource.mg-rt53-rt.environment
+        - resource.mg-lb-rt.environment
+        type: allowed
+      required: true
+    value: mgi-sandbox
+    valueType: text
+  - name: Instance Count
+    options:
+      displayMetadata:
+        disabled: false
+        section: ""
+        sectionDescription: ""
+        tooltip: ""
+        weight: ""
+      override:
+        selectors:
+        - resource.mg-ec2-rt.instance_count
+        - resource.mg-rt53-rt.instance_count
+        - resource.mg-lb-rt.instance_count
+        type: allowed
+      required: true
+    value: "1"
+    valueType: json
+  - name: instance_type
+    options:
+      description: The type of instance to start
+      override:
+        type: allowed
+      required: true
+    value: t3.xlarge
+    valueType: text
+  - name: private_zone
+    options:
+      description: Set true for private zone.
+      override:
+        type: allowed
+      required: true
+    value: "true"
+    valueType: json
+  - name: load_balancer_listener_protocol
+    options:
+      description: Protocol for connections from clients to the load balancer. For
+        Application Load Balancers, valid values are HTTP and HTTPS, with a default
+        of HTTP. For Network Load Balancers, valid values are TCP, TLS, UDP, and TCP_UDP.
+        Not valid to use UDP or TCP_UDP if dual-stack mode is enabled. Not valid for
+        Gateway Load Balancers.
+      override:
+        type: allowed
+      required: true
+    value: TCP
+    valueType: text
+  - name: subnet_ids
+    options:
+      description: A list of subnet IDs to attach to the LB. Subnets cannot be updated
+        for Load Balancers of type network. Changing this value for load balancers
+        of type network will force a recreation of the resource.
+      override:
+        type: allowed
+      required: true
+    value: '["subnet-01191eb45bbc20289","subnet-0c2ace7c1bd6f389d"]'
+    valueType: hcl
+  - name: load_balancer_target_group_health_check_protocol
+    options:
+      description: Protocol to use to connect with the target. Defaults to HTTP. Not
+        applicable when target_type is lambda.
+      override:
+        type: allowed
+      required: true
+    value: TCP
+    valueType: text
+  - name: load_balancer_listener_port
+    options:
+      description: ' Port on which the load balancer is listening. Not valid for Gateway
+        Load Balancers.'
+      override:
+        type: allowed
+      required: true
+    value: "22"
+    valueType: json
+  - name: load_balancer_target_group_health_check_interval
+    options:
+      description: Approximate amount of time, in seconds, between health checks of
+        an individual target. Minimum value 5 seconds, Maximum value 300 seconds.
+      override:
+        type: allowed
+      required: true
+    value: "300"
+    valueType: json
+  - name: vpc_id
+    options:
+      description: Identifier of the VPC in which to create the target group. Required
+        when target_type is instance, ip or alb. Does not apply when target_type is
+        lambda.
+      override:
+        type: allowed
+      required: true
+    value: vpc-02f9ef53236d78343
+    valueType: text
+  - name: instance_count
+    options:
+      description: Number of instances to create.
+      override:
+        type: allowed
+      required: true
+    value: "1"
+    valueType: json
+  - name: load_balancer_name
+    options:
+      description: Name of the load balancer
+      override:
+        type: allowed
+      required: true
+    value: vijays-test-lb-081325
+    valueType: text
+  - name: load_balancer_target_port
+    options:
+      description: Port on which targets receive traffic, unless overridden when registering
+        a specific target. Required when target_type is instance, ip or alb. Does
+        not apply when target_type is lambda.
+      override:
+        type: allowed
+      required: true
+    value: "22"
+    valueType: json
+  - name: load_balancer_target_protocol
+    options:
+      description: Protocol to use for routing traffic to the targets. Should be one
+        of GENEVE, HTTP, HTTPS, TCP, TCP_UDP, TLS, or UDP. Required when target_type
+        is instance, ip or alb. Does not apply when target_type is lambda.
+      override:
+        type: allowed
+      required: true
+    value: TCP
+    valueType: text
+  - name: load_balancer_target_group_name
+    options:
+      description: Name of the load balancer target group.
+      override:
+        type: allowed
+      required: true
+    value: vijays-test-tgt-081325
+    valueType: text
+  - name: name
+    options:
+      description: Name to be used on all resources as prefix
+      override:
+        type: allowed
+      required: true
+    value: vijays-test-081325
+    valueType: text
+  - name: load_balancer_dns_record_name
+    options:
+      description: load balancer DNS record name
+      override:
+        type: allowed
+    value: testlbentry
+    valueType: text
+  - name: session_stickiness_type
+    options:
+      description: The type of sticky sessions. The only current possible values are
+        lb_cookie, app_cookie for ALBs, and source_ip for NLBs.
+    value: source_ip
+    valueType: json
+  - name: load_balancer_type
+    options:
+      description: The type of load balancer to create. Possible values are application,
+        gateway, or network.
+    value: network
+    valueType: json
+  - name: subnet_id
+    options:
+      description: A list of VPC Subnet IDs to launch in
+      override:
+        type: allowed
+    value: '["subnet-01191eb45bbc20289","subnet-0c2ace7c1bd6f389d"]'
+    valueType: hcl
+  - name: volume_tags
+    options:
+      description: A mapping of tags to assign to the devices created by the instance
+        at launch time
+      override:
+        type: allowed
+    value: "{ \n\"env\" = \"cs-demo\" \n\"email\" = \"vijaysamanthapuri@rafay.co\"
+      \n}"
+    valueType: hcl
+  - name: tags
+    options:
+      description: A mapping of tags to assign to the resource
+      override:
+        type: allowed
+    value: "{ \n\"env\" = \"cs-demo\" \n\"email\" = \"vijaysamanthapuri@rafay.co\"
+      \n}"
+    valueType: hcl
+  - name: vpc_security_group_ids
+    options:
+      description: A list of security group IDs to associate with
+      override:
+        type: allowed
+    value: '["sg-0cb97a3153234a732"]'
+    valueType: hcl

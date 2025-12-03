@@ -1,0 +1,10 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: Environment
+metadata:
+  name: eksclusertest
+  project: defaultproject
+spec:
+  template:
+    name: eks-custom
+    version: v1
+    versionState: unspecified

@@ -1,0 +1,25 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: Environment
+metadata:
+  name: vijaysekstestbucket102325
+  project: defaultproject
+spec:
+  template:
+    name: s3-trf-template
+    version: v1
+    versionState: unspecified
+  variables:
+  - name: bucket
+    options:
+      override:
+        type: allowed
+      required: true
+    value: vijaysekstestbucket102325
+    valueType: text
+  - name: bucket_prefix
+    options:
+      override:
+        type: allowed
+      required: true
+    value: '""'
+    valueType: text

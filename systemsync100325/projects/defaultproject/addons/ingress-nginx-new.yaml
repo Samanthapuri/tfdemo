@@ -1,0 +1,22 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Addon
+metadata:
+  annotations:
+    rafay.dev/audit_type: BROWSER||Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)
+      AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36
+    rafay.dev/audit_user: vijaysamanthapuri@rafay.co
+    rafay.dev/audit_user_group: Organization Admins,Organization Read Only
+  name: ingress-nginx-new
+  project: defaultproject
+spec:
+  artifact:
+    artifact:
+      chartPath:
+        name: file://artifacts/ingress-nginx-new/ingress-nginx-4.12.1.tgz
+      valuesPaths:
+      - name: file://artifacts/ingress-nginx-new/values.yaml
+    type: Helm
+  namespace: default
+  sharing: {}
+  version: v5
+  versionState: active

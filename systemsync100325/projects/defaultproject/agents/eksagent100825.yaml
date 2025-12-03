@@ -1,0 +1,11 @@
+apiVersion: gitops.k8smgmt.io/v3
+kind: Agent
+metadata:
+  name: eksagent100825
+  project: defaultproject
+spec:
+  active: true
+  cluster:
+    name: vijayseks0930296
+  type: Cluster
+  version: r3.7.0

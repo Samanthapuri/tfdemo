@@ -1,0 +1,18 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: Environment
+metadata:
+  name: fmtest010525
+  project: defaultproject
+spec:
+  template:
+    name: optouttest
+    version: v6
+    versionState: unspecified
+  variables:
+  - name: username
+    options:
+      override:
+        type: allowed
+      required: true
+    value: vijays
+    valueType: text

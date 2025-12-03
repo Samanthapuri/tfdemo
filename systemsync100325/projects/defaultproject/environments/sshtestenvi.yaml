@@ -1,0 +1,10 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: Environment
+metadata:
+  name: sshtestenvi
+  project: defaultproject
+spec:
+  template:
+    name: sshtest
+    version: v1
+    versionState: unspecified

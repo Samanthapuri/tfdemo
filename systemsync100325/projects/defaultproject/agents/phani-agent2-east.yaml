@@ -1,0 +1,11 @@
+apiVersion: gitops.k8smgmt.io/v3
+kind: Agent
+metadata:
+  name: phani-agent2-east
+  project: defaultproject
+spec:
+  active: true
+  cluster:
+    name: phani-fmac-agent2
+  type: Cluster
+  version: r3.4.0

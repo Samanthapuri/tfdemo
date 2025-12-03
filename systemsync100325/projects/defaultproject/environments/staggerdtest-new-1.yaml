@@ -1,0 +1,29 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: Environment
+metadata:
+  name: staggerdtest-new-1
+  project: defaultproject
+spec:
+  secret:
+    name: file://artifacts/staggerdtest-new-1/sealed-secret.yaml
+  template:
+    name: staggeredtest-1
+    version: v2
+    versionState: unspecified
+  variables:
+  - name: username
+    options:
+      override:
+        type: allowed
+      required: true
+    value: vijays
+    valueType: text
+  - name: password
+    options:
+      mask: true
+      override:
+        type: allowed
+      required: true
+      sensitive: true
+    value: sealed://variables.1.
+    valueType: text

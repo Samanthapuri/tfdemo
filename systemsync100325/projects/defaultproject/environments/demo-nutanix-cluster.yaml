@@ -1,0 +1,99 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: Environment
+metadata:
+  name: demo-nutanix-cluster
+  project: defaultproject
+spec:
+  template:
+    name: nutanix-cluster
+    version: v1
+    versionState: unspecified
+  variables:
+  - name: masters
+    options:
+      override:
+        type: allowed
+      required: true
+    value: (["master-0", "master-1"])
+    valueType: hcl
+  - name: memory_in_mb
+    options:
+      override:
+        type: allowed
+      required: true
+    value: "4096"
+    valueType: text
+  - name: num_sockets
+    options:
+      override:
+        type: allowed
+      required: true
+    value: "2"
+    valueType: text
+  - name: template_name
+    options:
+      override:
+        type: allowed
+      required: true
+    value: vijaysvm
+    valueType: text
+  - name: template_uuid
+    options:
+      override:
+        type: allowed
+      required: true
+    value: 0afc5780-42c9-4e5a-a4df-dbb76c8e55d5
+    valueType: text
+  - name: vcpus_per_socket
+    options:
+      override:
+        type: allowed
+      required: true
+    value: "2"
+    valueType: text
+  - name: vm_prefix
+    options:
+      override:
+        type: allowed
+      required: true
+    value: demo
+    valueType: text
+  - name: cluster_blueprint
+    options:
+      override:
+        type: allowed
+      required: true
+    value: minimal
+    valueType: text
+  - name: cluster_blueprint_version
+    options:
+      override:
+        type: allowed
+      required: true
+    value: 2.7.0
+    valueType: text
+  - name: workers
+    options:
+      override:
+        type: allowed
+      required: true
+    value: (["worker-0"])
+    valueType: hcl
+  - name: cluster_kubernetes_version
+    options:
+      override:
+        type: allowed
+    value: v1.30.1
+    valueType: text
+  - name: cluster_dedicated_masters
+    options:
+      override:
+        type: allowed
+    value: "false"
+    valueType: json
+  - name: cluster_ha
+    options:
+      override:
+        type: allowed
+    value: "false"
+    valueType: json

@@ -1,0 +1,36 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: Environment
+metadata:
+  name: vijaystestbucket191120251234
+  project: defaultproject
+spec:
+  agents:
+  - name: mksagent191125
+  template:
+    name: s3-trf-template
+    version: v1
+    versionState: unspecified
+  variables:
+  - name: bucket
+    options:
+      override:
+        type: allowed
+      required: true
+    value: vijaystestbucket191120251234
+    valueType: text
+  - name: bucket_prefix
+    options:
+      override:
+        type: allowed
+      required: true
+    value: '""'
+    valueType: text
+  - name: testobj
+    options:
+      override:
+        type: allowed
+    value: |-
+      {
+      "test" = "testvalue"
+      }
+    valueType: hcl

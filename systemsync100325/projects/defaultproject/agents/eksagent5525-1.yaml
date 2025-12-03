@@ -1,0 +1,24 @@
+apiVersion: gitops.k8smgmt.io/v3
+kind: Agent
+metadata:
+  name: eksagent5525-1
+  project: defaultproject
+spec:
+  cluster:
+    name: vijayseks050520254
+  config:
+    concurrency: 200
+    environment:
+      numWorkers: 100
+    kubernetes:
+      limits:
+        cpu: 1234m
+        memory: 1234Mi
+      nodeSelector:
+        testkey: testvalue
+      tolerations:
+      - effect: NoSchedule
+        key: gpu1
+        operator: Exists
+  type: Cluster
+  version: r3.5.0

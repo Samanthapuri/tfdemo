@@ -1,0 +1,11 @@
+apiVersion: gitops.k8smgmt.io/v3
+kind: Agent
+metadata:
+  name: mksagent-new
+  project: defaultproject
+spec:
+  active: true
+  cluster:
+    name: mksclustervijays
+  type: Cluster
+  version: r3.6.0

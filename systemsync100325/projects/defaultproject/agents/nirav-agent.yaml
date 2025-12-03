@@ -1,0 +1,9 @@
+apiVersion: gitops.k8smgmt.io/v3
+kind: Agent
+metadata:
+  name: nirav-agent
+  project: defaultproject
+spec:
+  active: true
+  type: Docker
+  version: r3.5.0

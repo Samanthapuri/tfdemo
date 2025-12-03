@@ -1,0 +1,44 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: Environment
+metadata:
+  name: ec2r53test
+  project: defaultproject
+spec:
+  template:
+    name: ec2-r53
+    version: v1
+    versionState: unspecified
+  variables:
+  - name: env
+    options:
+      override:
+        restrictedValues:
+        - test
+        - dev
+        type: restricted
+      required: true
+    value: test
+    valueType: text
+  - name: names
+    options:
+      override:
+        type: allowed
+      required: true
+    value: '["testdnsentry-1"]'
+    valueType: hcl
+  - name: Instance Count
+    options:
+      displayMetadata:
+        disabled: false
+        section: ""
+        sectionDescription: ""
+        tooltip: ""
+        weight: ""
+      override:
+        selectors:
+        - resource.r53-rt.instance_count
+        - resource.ec2-rt.instance_count
+        type: allowed
+      required: true
+    value: "1"
+    valueType: json

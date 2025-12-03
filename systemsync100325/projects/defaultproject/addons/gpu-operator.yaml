@@ -1,0 +1,23 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Addon
+metadata:
+  annotations:
+    rafay.dev/audit_type: BROWSER||Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)
+      AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+    rafay.dev/audit_user: vijaysamanthapuri@rafay.co
+    rafay.dev/audit_user_group: Organization Admins,Organization Read Only
+  name: gpu-operator
+  project: defaultproject
+spec:
+  artifact:
+    artifact:
+      catalog: default-helm
+      chartName: fake-gpu-operator
+      chartVersion: 0.0.59
+      valuesPaths:
+      - name: file://artifacts/gpu-operator/values.yaml
+    type: Helm
+  namespace: gpu-operator
+  sharing: {}
+  version: 0.0.59
+  versionState: active

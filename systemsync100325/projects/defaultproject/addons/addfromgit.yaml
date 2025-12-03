@@ -1,0 +1,17 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Addon
+metadata:
+  name: addfromgit
+  project: defaultproject
+spec:
+  artifact:
+    artifact:
+      paths:
+      - name: test1/
+      repository: nutanix-repo
+      revision: main
+    type: Yaml
+  namespace: ankitns
+  sharing: {}
+  version: v3
+  versionState: active

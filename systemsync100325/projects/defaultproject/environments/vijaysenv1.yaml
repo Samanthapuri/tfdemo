@@ -1,0 +1,34 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: Environment
+metadata:
+  name: vijaysenv1
+  project: defaultproject
+spec:
+  envVars:
+  - key: RCTL_API_KEY
+    options:
+      override:
+        type: notallowed
+    value: ra2.7f6a4f0bbb60a819dd7516e77fcfdf7ebe198a71.3151950ffcc6394483f9d8c20c981a81d8c1b3f3d0d94a340a3db8aa7105611f
+  - key: RCTL_REST_ENDPOINT
+    options:
+      override:
+        type: notallowed
+    value: console.rafay.dev
+  - key: RCTL_PROJECT
+    options:
+      override:
+        type: notallowed
+    value: defaultproject
+  template:
+    name: optouttest
+    version: v7
+    versionState: unspecified
+  variables:
+  - name: username
+    options:
+      override:
+        type: allowed
+      required: true
+    value: vijays
+    valueType: text

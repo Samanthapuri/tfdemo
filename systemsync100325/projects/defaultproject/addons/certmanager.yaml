@@ -1,0 +1,17 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Addon
+metadata:
+  name: certmanager
+  project: defaultproject
+spec:
+  artifact:
+    artifact:
+      chartName: cert-manager
+      chartVersion: v1.1.0
+      valuesPaths:
+      - name: file://artifacts/certmanager/values.yaml
+    type: Helm
+  namespace: cert-manager
+  sharing: {}
+  version: v2
+  versionState: active

@@ -1,0 +1,20 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: Environment
+metadata:
+  name: ekscluster-new7
+  project: defaultproject
+spec:
+  agents:
+  - name: mksagent
+  template:
+    name: ekscluster
+    version: v1
+    versionState: unspecified
+  variables:
+  - name: name
+    options:
+      override:
+        type: allowed
+      required: true
+    value: vijayseks093025
+    valueType: text

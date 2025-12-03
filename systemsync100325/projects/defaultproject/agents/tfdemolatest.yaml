@@ -1,0 +1,11 @@
+apiVersion: gitops.k8smgmt.io/v3
+kind: Agent
+metadata:
+  name: tfdemolatest
+  project: defaultproject
+spec:
+  active: true
+  cluster:
+    name: vijayseks04102024
+  type: Cluster
+  version: r2.11.0
