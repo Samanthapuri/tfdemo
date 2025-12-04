@@ -1,0 +1,77 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Cluster
+metadata:
+  name: vijayseks705032024
+  project: defaultproject
+spec:
+  blueprintConfig:
+    name: minimal
+    version: 3.7.0
+  cloudCredentials: vijaysrole
+  config:
+    addons:
+    - name: coredns
+      version: latest
+    - name: kube-proxy
+      version: latest
+    - name: vpc-cni
+      version: latest
+    - name: aws-ebs-csi-driver
+      version: latest
+    iam:
+      withOIDC: true
+    identityMappings:
+      arns:
+      - arn: arn:aws:iam::111111111111:role/karpenterrole
+        group:
+        - system:bootstrappers
+        - system:nodes
+        username: system:node:{{EC2PrivateDNSName}}
+      - arn: arn:aws:iam::111111111111:role/sso-devops-iam-role
+        group:
+        - system:masters
+        username: sso-devops-iam-role
+      - arn: arn:aws:iam::111111111111:role/sso-k8s-power-iam-role
+        group:
+        - system:masters
+        username: sso-k8s-power-iam-role
+    managedNodeGroups:
+    - amiFamily: AmazonLinux2
+      desiredCapacity: 1
+      disableIMDSv1: false
+      disablePodIMDS: false
+      ebsOptimized: false
+      efaEnabled: false
+      enableDetailedMonitoring: false
+      instanceType: t3.xlarge
+      maxPodsPerNode: 50
+      maxSize: 2
+      minSize: 1
+      name: ng-1
+      privateNetworking: true
+      spot: false
+      tags:
+        email: vijaysamanthapuri@rafay.co
+        env: cs-demo
+      version: "1.32"
+      volumeEncrypted: false
+      volumeIOPS: 3000
+      volumeSize: 80
+      volumeThroughput: 125
+      volumeType: gp3
+    metadata:
+      name: vijayseks705032024
+      region: us-west-2
+      tags:
+        email: vijaysamanthapuri@rafay.co
+        env: cs-demo
+      version: "1.32"
+    network:
+      cni:
+        name: aws-cni
+    vpc:
+      autoAllocateIPv6: false
+      clusterEndpoints:
+        privateAccess: true
+        publicAccess: true
+  type: aws-eks
