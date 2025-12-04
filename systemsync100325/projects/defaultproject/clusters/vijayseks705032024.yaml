@@ -1,7 +1,7 @@
 apiVersion: infra.k8smgmt.io/v3
 kind: Cluster
 metadata:
-  name: vijayseks120425
+  name: vijayseks705032024
   project: defaultproject
 spec:
   blueprintConfig:
@@ -60,7 +60,7 @@ spec:
       volumeThroughput: 125
       volumeType: gp3
     metadata:
-      name: vijayseks120425
+      name: vijayseks705032024
       region: us-west-2
       tags:
         email: vijaysamanthapuri@rafay.co
