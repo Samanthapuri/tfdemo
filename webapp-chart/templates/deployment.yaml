@@ -2,9 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: test-deployment
-  labels:
-    testapp: "true"
-    fm-test: "true"
+  {{- template "mychart.labels" }}
 spec:
   replicas: {{ .Values.replicaCount}}
   selector:
