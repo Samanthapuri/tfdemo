@@ -5,6 +5,11 @@ metadata:
   project: defaultproject
 spec:
   envVars:
+  - key: RCTL_PROJECT
+    options:
+      override:
+        type: notallowed
+    value: defaultproject
   - key: RCTL_API_KEY
     options:
       override:
@@ -15,11 +20,6 @@ spec:
       override:
         type: notallowed
     value: console.rafay.dev
-  - key: RCTL_PROJECT
-    options:
-      override:
-        type: notallowed
-    value: defaultproject
   template:
     name: optouttest
     version: v7
