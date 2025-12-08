@@ -1,0 +1,215 @@
+# Default values for prometheus.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+image:
+  repository: registry.rafay-edge.net/rafay/prometheus
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: v2.24.1-2
+
+configmapReloader:
+  image:
+    repository: registry.rafay-edge.net/rafay/prom-configmap-reload
+    pullPolicy: IfNotPresent
+    # Overrides the image tag whose default is the chart appVersion.
+    tag: v0.5.0
+  resources:
+    requests:
+      memory: "64Mi"
+      cpu: "50m"
+
+prometheusAdapter:
+  disable: false
+
+  image:
+    repository: registry.rafay-edge.net/rafay/k8s-prometheus-adapter
+    pullPolicy: IfNotPresent
+    tag: v0.8.4-1
+
+  podAnnotations: {}
+
+  serviceAccount:
+    annotations: {}
+
+  resources:
+    requests:
+      memory: 64Mi
+      cpu: 20m
+    limits:
+      memory: 5Gi
+      cpu: 1000m
+
+metricsServer:
+  disable: false
+
+  image:
+    repository: registry.rafay-edge.net/rafay/metrics-server
+    pullPolicy: IfNotPresent
+    tag: v0.6.0
+
+  podAnnotations: {}
+
+  serviceAccount:
+    annotations: {}
+
+  resources:
+    requests:
+      memory: 64Mi
+      cpu: 50m
+    limits:
+      memory: 512Mi
+      cpu: 500m
+
+kubeStateMetrics:
+  disable: false
+  discoveryConfig:
+    namespace: ""
+    resource: ""
+    labels:
+      {}
+
+  image:
+    repository: registry.rafay-edge.net/rafay/kube-state-metrics
+    pullPolicy: IfNotPresent
+    # Overrides the image tag whose default is the chart appVersion.
+    tag: v2.6.2
+
+  podAnnotations: {}
+
+  serviceAccount:
+    annotations: {}
+
+  resources:
+    requests:
+      memory: 128Mi
+      cpu: 100m
+    limits:
+      memory: 5Gi
+      cpu: 1000m
+
+nodeExporter:
+  disable: false
+  discoveryConfig:
+    namespace: ""
+    resource: ""
+    labels:
+      {}
+
+  image:
+    repository: registry.rafay-edge.net/rafay/prom-node-exporter
+    pullPolicy: IfNotPresent
+    tag: v1.0.1-2
+    arm64Tag: arm64-v1.0.1-2
+
+  podAnnotations: {}
+
+  serviceAccount:
+    annotations: {}
+
+  resources:
+    requests:
+      memory: 64Mi
+      cpu: 20m
+    limits:
+      memory: 256Mi
+      cpu: 200m
+
+helmExporter:
+  disable: false
+  discoveryConfig:
+    namespace: ""
+    resource: ""
+    labels: 
+      {}
+
+  image:
+    repository: registry.rafay-edge.net/rafay/helm-exporter
+    pullPolicy: Always
+    tag: 0.6.0-1
+
+  podAnnotations: {}
+
+  serviceAccount:
+    annotations: {}
+
+  resources:
+    requests:
+      memory: 64Mi
+      cpu: 20m
+    limits:
+      memory: 256Mi
+      cpu: 200m
+
+prometheusEdgeConfig:
+  v1EdgeID: ""
+  v1DeploymentEnv: ""
+  organizationHash: ""
+  partnerHash: ""
+  v1EdgeDisplayName: ""
+  orgDisplayName: ""
+  partnerDisplayName: ""
+  projectID: ""
+  projectHash: ""
+  projectName: ""
+  v1InfluxDBFQDN: ""
+  v1InfluxDBPassword: ""
+  v1InfluxDBFQDNtype: api/v1/prom
+  proxyConfig:
+    enabled: false
+    httpsProxy: ""
+
+rafayInflux:
+  secrets:
+    data: {}
+      # influxfqdn: ""
+      # password: ""
+      # environment: ""
+
+prometheusCreds:
+  secrets:
+    data: {}
+      # ca.crt: ""
+      # client.crt: ""
+      # client.key: ""
+
+rafayEdgeCreds:
+  secrets:
+    data: {}
+      # ca.crt: ""
+      # client.crt: ""
+      # client.key: ""
+
+rafayEventFrameworkCerts:
+  secrets:
+    data: {}
+      # ca.crt: ""
+      # client.crt: ""
+      # client.key: ""
+
+podAnnotations: {}
+
+serviceAccount:
+  annotations: {}
+
+resources:
+  requests:
+    memory: "64Mi"
+    cpu: "50m"
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+# Cost Metrics Customizations
+costMetrics:
+  disable: true
+  config: {}
+
+isSelfHosted: false

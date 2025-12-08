@@ -1,0 +1,929 @@
+# Section xfn-cert-manager contains a fix for cert-manager airgap!
+#DO NOT DELETE!!!
+# Section monitoring contains a fix for airgap!
+#DO NOT DELETE!!!
+# Section Seaweedfs contains a fix for airgap!
+#DO NOT DELETE!!!
+# Generation Date: 2025-08-01 09:10:10
+# Customer: Zain KSA Ph10 step 1
+# Contact: mathieu.pinson@exfo.com
+# Platform version: 5.2
+# Dimensioning version: 79
+# Dimensioning file: Zain_KSA_Ph10_Step1_Dimensioning_Sensai_test_v79.xlsx
+# Created from scratch
+anomaly-postprocess-service:
+  env:
+    MEMORY: 2G
+    POST_PROCESS_CORRELATION_DELAY_AFTER_START: 21600
+    POST_PROCESS_CORRELATION_DELAY_BEFORE_START: 21600
+    POST_PROCESS_MATCH_DELAY_AFTER_START: 3600
+    POST_PROCESS_MATCH_DELAY_BEFORE_START: 3600
+  replicaCount: 1
+  resources:
+    limits:
+      cpu: 1000m
+      memory: 4Gi
+    requests:
+      cpu: 400m
+      memory: 2Gi
+  resourcesControl: true
+api-gateway:
+  replicaCount: 1
+  resources:
+    limits:
+      cpu: 6000m
+      memory: 6Gi
+    requests:
+      cpu: 3000m
+      memory: 3Gi
+  resourcesControl: true
+apiVersion: v1
+applications-registration:
+  hostname: nova-sensai.zainksa.exfo.loc
+case-recurrency-service:
+  memory: 1G
+  periodicity:
+    parameterminchainsize: 5
+  replicaCount: 1
+  resources:
+    limits:
+      cpu: 1000m
+      memory: 2Gi
+    requests:
+      cpu: 500m
+      memory: 1Gi
+  resourcesControl: true
+case-service:
+  environment:
+    replication_num: 3
+  memory: 4G
+  replicaCount: 1
+  resources:
+    limits:
+      cpu: 4000m
+      memory: 8Gi
+    requests:
+      cpu: 2000m
+      memory: 4Gi
+  resourcesControl: true
+case-service-schedule:
+  memory: 256M
+  ongoing:
+    forceend:
+      delaysec: 2000
+      periodmsec: 600000
+  refupdate:
+    enabled: true
+  replicaCount: 1
+  resources:
+    limits:
+      cpu: 1000m
+      memory: 512Mi
+    requests:
+      cpu: 100m
+      memory: 256Mi
+  resourcesControl: true
+cerebro-dashboards-service:
+  replicaCount: 1
+  resources:
+    limits:
+      cpu: 1000m
+      memory: 2Gi
+    requests:
+      cpu: 500m
+      memory: 1Gi
+  resourcesControl: true
+cerebro-data-service:
+  environment:
+    memory: 2G
+    pool: 20
+    processMode: 2
+  hostname: nova-sensai.zainksa.exfo.loc
+  replicaCount: 2
+  resources:
+    limits:
+      cpu: 1000m
+      memory: 4Gi
+    requests:
+      cpu: 100m
+      memory: 2Gi
+  resourcesControl: true
+cerebro-job-service:
+  environment:
+    queryProxyUrl: http://smart-query-service-starrocks:8989
+  replicaCount: 1
+cerebro-ui-mfe:
+  environment:
+    anomalyDetectionEnabled: true
+    explorerEnabled: true
+    tagsEnabled: true
+  hostname: nova-sensai.zainksa.exfo.loc
+  replicaCount: 1
+  resources:
+    limits:
+      cpu: 1000m
+      memory: 1Gi
+    requests:
+      cpu: 500m
+      memory: 512Mi
+  resourcesControl: true
+config-service:
+  env:
+    ENABLED_STREAMING_WORKFLOWS: 6129484611666145824,3871781440810565225
+    MS_TYPES_ENABLED: AD,AUDIT,OA,REF,RV
+    SKIP_DRUID_CAPACITY_CHECK: true
+    STREAMING_CORE_REPLICAS: 7
+  recordStitching:
+    backgroundThreads: 8
+    consumerCount: 8
+    processingThreads: 4
+    replicaCount: 4
+  replicaCount: 1
+  resources:
+    limits:
+      cpu: 1000m
+      memory: 2Gi
+    requests:
+      cpu: 500m
+      memory: 1Gi
+  resourcesControl: true
+configuration-mfe:
+  environment:
+    anomalyDetectionEnabled: true
+    continuousMonitoring: true
+    explorerEnabled: true
+    metricStreamEnabled: true
+    tagsEnabled: true
+  hostname: nova-sensai.zainksa.exfo.loc
+  replicaCount: 1
+  resources:
+    limits:
+      cpu: 1000m
+      memory: 1Gi
+    requests:
+      cpu: 500m
+      memory: 512Mi
+  resourcesControl: true
+configuration-resources-service:
+  replicaCount: 1
+  resources:
+    limits:
+      cpu: 1000m
+      memory: 2Gi
+    requests:
+      cpu: 500m
+      memory: 1Gi
+  resourcesControl: true
+dashboards-mfe:
+  environment:
+    casesPeriodicityEnabled: true
+    drilldownDashToDetailsViewEnabled: true
+    explorerEnabled: true
+    recordGridWidgetEnabled: true
+  hostname: nova-sensai.zainksa.exfo.loc
+  replicaCount: 1
+  resources:
+    limits:
+      cpu: 1000m
+      memory: 1Gi
+    requests:
+      cpu: 500m
+      memory: 512Mi
+  resourcesControl: true
+decoder-api:
+  environment:
+    memory: 2G
+  replicaCount: 1
+  resources:
+    limits:
+      cpu: 1000m
+      memory: 4Gi
+    requests:
+      cpu: 500m
+      memory: 2Gi
+  resourcesControl: true
+decoding-proxy:
+  environment:
+    memory: 512M
+    network_decoder_url: https://networkdecoder_url
+  replicaCount: 1
+  resources:
+    limits:
+      cpu: 1000m
+      memory: 1Gi
+    requests:
+      cpu: 250m
+      memory: 512Mi
+  resourcesControl: true
+drill-down-service:
+  environment:
+    drilldown:
+      appversion: newgen
+    memory: 1G
+    nova: 10.157.195.138
+    processMode: 2
+  hostname: nova-sensai.zainksa.exfo.loc
+  replicaCount: 2
+  resources:
+    limits:
+      cpu: 1000m
+      memory: 2Gi
+    requests:
+      cpu: 100m
+      memory: 1Gi
+  resourcesControl: true
+fidelius:
+  replicaCount: 0
+  resources:
+    limits:
+      cpu: 1000m
+      memory: 66Mi
+    requests:
+      cpu: 10m
+      memory: 33Mi
+git-config-manager:
+  replicaCount: 1
+  resources:
+    limits:
+      cpu: 2000m
+      memory: 2Gi
+    requests:
+      cpu: 1000m
+      memory: 1Gi
+  resourcesControl: true
+gitea:
+  replicaCount: 1
+  resources:
+    limits:
+      cpu: 1000m
+      memory: 1536Mi
+    requests:
+      cpu: 500m
+      memory: 768Mi
+  resourcesControl: true
+  serverDomain: nova-sensai.zainksa.exfo.loc
+  storage:
+    accessMode: ReadWriteOnce
+    class: local-lvm
+    size: 5G
+global:
+  amt:
+    drilldown:
+      enabled: true
+  anomaly-detection-dashboards:
+    enabled: true
+  anomalyPostprocessService:
+    enabled: true
+  assetsInventory:
+    enabled: true
+  auditLogs:
+    enabled: true
+  caseRecurrencyService:
+    enabled: true
+  caseService:
+    enabled: true
+  caseServiceSchedule:
+    enabled: true
+  cerebro-dashboards-service:
+    enabled: true
+  cerebro-job-service:
+    enabled: false
+  cerebro-ui-mfe:
+    enabled: true
+  configuration-mfe:
+    enabled: true
+  configuration-resources-service:
+    enabled: true
+  cube-builder:
+    enabled: false
+  dashboards-mfe:
+    enabled: true
+  debug:
+    enabled: false
+  defaultSecret: false
+  druid:
+    enabled: false
+  enable_dataaccesscontrol: true
+  external-docs:
+    enabled: false
+  fidelius:
+    enabled: false
+  grafana-solution-health:
+    enabled: true
+  groupClassificationService:
+    enabled: false
+  health-monitor:
+    enabled: true
+  iam:
+    external:
+      authorizeEndpoint: https://nova-sensai.zainksa.exfo.loc/iam/realms/platform/protocol/openid-connect/auth
+      jwksEndpoint: https://nova-sensai.zainksa.exfo.loc/iam/realms/platform/protocol/openid-connect/certs
+      logoutEndpoint: https://nova-sensai.zainksa.exfo.loc/iam/realms/platform/protocol/openid-connect/logout
+      revocationEndpoint: https://nova-sensai.zainksa.exfo.loc/iam/realms/platform/protocol/openid-connect/revoke
+      tokenEndpoint: https://nova-sensai.zainksa.exfo.loc/iam/realms/platform/protocol/openid-connect/token
+      userinfoEndpoint: https://nova-sensai.zainksa.exfo.loc/iam/realms/platform/protocol/openid-connect/userinfo
+  image:
+    registry_url: registry.exfo-solutions.loc/images/exfo
+  ingress:
+    anomalyHelpVisible: true
+    smartInsightsHelpVisible: false
+  internal-shell-mfe:
+    enabled: true
+  ip-monitoring-core:
+    cpe-enabled: false
+    enabled: false
+    k8s-enabled: false
+  istio:
+    enabled: false
+  jupyterlab:
+    enabled: false
+  kafka:
+    environment:
+      external: ast-bd-broker001.domlinast.loc:9092,ast-bd-broker002.domlinast.loc:9092,ast-bd-broker006.domlinast.loc:9092,ast-bd-broker007.domlinast.loc:9092,ast-bd-broker005.domlinast.loc:9092,ast-bd-broker004.domlinast.loc:9092
+    externalKafka: true
+  keycloak:
+    enabled: true
+  launchpad-applications-service:
+    enabled: true
+  launchpad-iam-service:
+    enabled: true
+  metricStreamExport:
+    enabled: false
+  monitoring:
+    enabled: true
+  namespace: sensai
+  nifi:
+    enabled: true
+  oidc-display-tokens:
+    enabled: true
+  online-help:
+    enabled: true
+  openstreetmap:
+    enabled: false
+  operationalAnalytics:
+    enabled: true
+  query-enrichment-proxy:
+    enabled: true
+  rafayAccess: false
+  record-stitching:
+    enabled: true
+  redundancy:
+    enabled: false
+  register-mfe-service:
+    enabled: true
+  reloader:
+    enabled: true
+  reveal:
+    enabled: true
+  seaweedfs:
+    enabled: true
+  smart-jobs-service:
+    enabled: false
+  smart-query-service:
+    enabled: false
+  smart-query-service-starrocks:
+    enabled: true
+  solutionName: Exfo Platform
+  stackgres:
+    enabled: true
+  starrocks:
+    enabled: true
+  ui-export-service:
+    enabled: true
+  uiExternal:
+    hostname: nova-sensai.zainksa.exfo.loc
+  useLaunchpad: false
+  user-management-mfe:
+    enabled: true
+  zookeeper:
+    enabled: false
+internal-shell-mfe:
+  environment:
+    mode: analytics,anomaly
+  hostname: nova-sensai.zainksa.exfo.loc
+  replicaCount: 1
+  resources:
+    limits:
+      cpu: 1000m
+      memory: 1Gi
+    requests:
+      cpu: 500m
+      memory: 512Mi
+  resourcesControl: true
+jupyterlab:
+  environment:
+    queryProxyUrl: http://smart-query-service-starrocks:8989
+  replicaCount: 1
+kafbat-ui:
+  env:
+    readonly: true
+  replicaCount: 1
+  resources:
+    limits:
+      cpu: 1000m
+      memory: 1Gi
+    requests:
+      cpu: 20m
+      memory: 512Mi
+  resourcesControl: true
+keycloak:
+  database:
+    maxconn: 20
+  replicaCount: 1
+  resources:
+    limits:
+      cpu: 1000m
+      memory: 1Gi
+    requests:
+      cpu: 500m
+      memory: 512Mi
+  resourcesControl: true
+  truststore:
+    customTruststore: false
+    truststoreSecretName: ""
+launchpad-applications-service:
+  replicaCount: 1
+  resources:
+    limits:
+      cpu: 1000m
+      memory: 256Mi
+    requests:
+      cpu: 10m
+      memory: 128Mi
+  resourcesControl: true
+launchpad-iam-service:
+  replicaCount: 1
+  resources:
+    limits:
+      cpu: 1000m
+      memory: 256Mi
+    requests:
+      cpu: 10m
+      memory: 128Mi
+  resourcesControl: true
+mariadb:
+  instances:
+    common:
+      enabled: true
+      innodb_buffer_pool_size: 3277M
+      replicaCount: 1
+      resources:
+        limits:
+          cpu: 3000m
+          memory: 12Gi
+        requests:
+          cpu: 2000m
+          memory: 8Gi
+      resourcesControl: true
+      storage:
+        accessMode: ReadWriteOnce
+        class: local-lvm
+        size: 68G
+monitoring:
+  global:
+    imageRegistry: registry.exfo-solutions.loc/images/exfo
+  kube-prometheus-stack:
+    grafana:
+      grafana.ini:
+        server:
+          root_url: https://nova-sensai.zainksa.exfo.loc/grafana/
+      ingress:
+        hosts:
+        - nova-sensai.zainksa.exfo.loc
+        tls:
+        - hosts:
+          - nova-sensai.zainksa.exfo.loc
+      persistence:
+        size: 5G
+        storageClassName: local-lvm
+      post_logout_redirect_uri: https%3A%2F%2Fnova-sensai.zainksa.exfo.loc%2Fgrafana%2Flogin%2Fgeneric_oauth
+      replicas: 1
+      resources:
+        limits:
+          cpu: 1000m
+          memory: 615Mi
+        requests:
+          cpu: 500m
+          memory: 308Mi
+    prometheus:
+      prometheusSpec:
+        replicas: 1
+        resources:
+          limits:
+            cpu: 1000m
+            memory: 4Gi
+          requests:
+            cpu: 500m
+            memory: 2Gi
+        retentionSize: 61GB
+        storageSpec:
+          volumeClaimTemplate:
+            spec:
+              resources:
+                requests:
+                  storage: 70Gi
+              storageClassName: local-lvm
+  prometheus-pushgateway:
+    replicas: 1
+    resources:
+      limits:
+        cpu: 1000m
+        memory: 128Mi
+      requests:
+        cpu: 200m
+        memory: 64Mi
+name: SensAI
+nifi:
+  memory: 12G
+  replicaCount: 1
+  resources:
+    limits:
+      cpu: 2000m
+      memory: 24Gi
+    requests:
+      cpu: 1000m
+      memory: 12Gi
+  resourcesControl: true
+  storage:
+    accessMode: ReadWriteOnce
+    class: local-lvm
+    size: 100G
+  usev2: true
+nifi-authentication:
+  replicaCount: 1
+  resources:
+    limits:
+      cpu: 1000m
+      memory: 66Mi
+    requests:
+      cpu: 10m
+      memory: 33Mi
+oidc-display-tokens:
+  replicaCount: 1
+  resources:
+    limits:
+      cpu: 1000m
+      memory: 33Mi
+    requests:
+      cpu: 10m
+      memory: 17Mi
+  resourcesControl: true
+openstreetmap:
+  replicaCount: 1
+query-enrichment-proxy:
+  environment:
+    smart_query_service_api_url: http://smart-query-service-starrocks:8989
+  replicaCount: 1
+  resources:
+    limits:
+      cpu: 1000m
+      memory: 4Gi
+    requests:
+      cpu: 500m
+      memory: 2Gi
+  resourcesControl: true
+record-stitching:
+  environment:
+    backgroundThreads: 8
+    consumerCount: 8
+    memory: 36608M
+    processingThreads: 4
+  replicaCount: 4
+  resources:
+    limits:
+      cpu: 19300m
+      memory: 73216Mi
+    requests:
+      cpu: 9650m
+      memory: 36608Mi
+  resourcesControl: true
+referential-service:
+  environment:
+    CONTEXT_SERVICE_CLIENT_ENABLED: false
+    CONTEXT_SERVICE_URL: https://novacontext:8080
+    hikaripoolsize: 20
+    memory: 2G
+  replicaCount: 1
+  resources:
+    limits:
+      cpu: 1000m
+      memory: 4Gi
+    requests:
+      cpu: 500m
+      memory: 2Gi
+  resourcesControl: true
+register-mfe-service:
+  replicaCount: 1
+  resources:
+    limits:
+      cpu: 1000m
+      memory: 2Gi
+    requests:
+      cpu: 500m
+      memory: 1Gi
+  resourcesControl: true
+seaweedfs:
+  allInOne:
+    podSecurityContext:
+      enabled: true
+      fsGroup: 2000
+    data:
+      size: 50G
+      storageClass: local-lvm
+    replicaCount: 1
+    resources:
+      limits:
+        cpu: 2000m
+        memory: 1Gi
+      requests:
+        cpu: 50m
+        memory: 512Mi
+    resourcesControl: true
+  image:
+    registry: registry.exfo-solutions.loc/images/exfo
+  s3:
+    resourcesControl: true
+  sftp:
+    service:
+      nodePort:
+        enabled: true
+shell-mfe:
+  environment:
+    mode: analytics,anomaly
+  hostname: nova-sensai.zainksa.exfo.loc
+  replicaCount: 1
+  resources:
+    limits:
+      cpu: 1000m
+      memory: 1Gi
+    requests:
+      cpu: 500m
+      memory: 512Mi
+  resourcesControl: true
+smart-jobs-service:
+  replicaCount: 1
+smart-query-service:
+  replicaCount: 1
+smart-query-service-starrocks:
+  environment:
+    db_max_pool_size: 32
+    memory: 1G
+    ms_types: 0,3,4
+    replication_num: 3
+  replicaCount: 2
+  resources:
+    limits:
+      cpu: 1000m
+      memory: 2Gi
+    requests:
+      cpu: 50m
+      memory: 1Gi
+  resourcesControl: true
+stackgres:
+  master:
+    config:
+      max_connections: 173
+      shared_buffers: 512MB
+      work_mem: 32MB
+    replicaCount: 1
+    resources:
+      limits:
+        cpu: 6000m
+        memory: 6Gi
+      requests:
+        cpu: 3000m
+        memory: 3Gi
+    storage:
+      class: local-lvm
+      size: 100Gi
+  mode: production
+  worker:
+    storage:
+      class: local-lvm
+starrocks:
+  starrocksBeSpec:
+    replicas: 23
+    resources:
+      limits:
+        cpu: 16000m
+        memory: 64Gi
+      requests:
+        cpu: 16000m
+        memory: 64Gi
+    storageSpec:
+      logStorageSize: 5Gi
+      storageClassName: local-lvm
+      storageSize: 1514Gi
+  starrocksFESpec:
+    additionalConfig:
+      max_routine_load_task_concurrent_num: 13
+    environment:
+      memory: 4G
+    replicas: 3
+    resources:
+      limits:
+        cpu: 2000m
+        memory: 8Gi
+      requests:
+        cpu: 1000m
+        memory: 4Gi
+    storageSpec:
+      logStorageSize: 5Gi
+      storageClassName: local-lvm
+      storageSize: 10Gi
+starrocks-authentication:
+  replicaCount: 1
+  resources:
+    limits:
+      cpu: 1000m
+      memory: 66Mi
+    requests:
+      cpu: 10m
+      memory: 33Mi
+streamingCore:
+  environment:
+    activePlugins:
+    - cdr-enricher-plugin
+    - record-stitching-plugin
+    backgroundThreads: ""
+    consumerCount: ""
+    memory: 32G
+    processingThreads: 8
+  replicaCount: 7
+  resources:
+    limits:
+      cpu: 18000m
+      memory: 48Gi
+    requests:
+      cpu: 12000m
+      memory: 32Gi
+  resourcesControl: true
+  securedExternalKafkaList:
+  - name: mykafka00
+    security_protocol: ""
+  streamingApi:
+    memory: 8G
+    replicaCount: 1
+    resources:
+      limits:
+        cpu: 4000m
+        memory: 16Gi
+      requests:
+        cpu: 2000m
+        memory: 8Gi
+    resourcesControl: true
+strimzi:
+  advertisedName: nova-sensai.zainksa.exfo.loc
+  generateCertificateAuthority: true
+  kafka:
+    nodeport:
+      bootstrap:
+        nodePort: 30002
+      brokers:
+      - advertisedPort: 30101
+        broker: 0
+        nodePort: 30101
+      - advertisedPort: 30102
+        broker: 1
+        nodePort: 30102
+      - advertisedPort: 30103
+        broker: 2
+        nodePort: 30103
+    replicaCount: 3
+    storage:
+      class: local-lvm
+      disks_per_broker: 1
+      size: 1862G
+  kafka_default_replication_factor: 3
+  kafka_log_retention_bytes: "45000000000"
+  kafka_log_retention_hours: 3
+  kafka_num_io_threads: 16
+  kafka_num_network_threads: 16
+  kafka_offsets_topic_replication_factor: 3
+  kafka_partitions: 0
+  kafka_service: nodeport
+  kafka_tls: false
+  kafka_transaction_state_log_replication_factor: 3
+  kafka_upgrader:
+    replicaCount: 1
+  kafkaExporter:
+    replicaCount: 1
+  kraft:
+    enabled: true
+    replicaCount: 3
+    storage:
+      class: local-lvm
+      size: 5G
+  resources:
+    kafka_cluster:
+      jvmOptions:
+        xms: 64006M
+        xmx: 64006M
+      limits:
+        cpu: 10000m
+        memory: 85341Mi
+      requests:
+        cpu: 5000m
+        memory: 42671Mi
+    kafka_controller:
+      limits:
+        cpu: 1000m
+        memory: 1Gi
+      requests:
+        cpu: 350m
+        memory: 512Mi
+    kafka_exporter:
+      limits:
+        cpu: 1000m
+        memory: 205Mi
+      requests:
+        cpu: 20m
+        memory: 103Mi
+    kafka_upgrader:
+      limits:
+        cpu: 1000m
+        memory: 132Mi
+      requests:
+        cpu: 10m
+        memory: 66Mi
+  resourcesControl: true
+ui-export-service:
+  replicaCount: 1
+  resources:
+    limits:
+      cpu: 1000m
+      memory: 512Mi
+    requests:
+      cpu: 500m
+      memory: 256Mi
+  resourcesControl: true
+user-management-mfe:
+  hostname: nova-sensai.zainksa.exfo.loc
+  replicaCount: 1
+  resources:
+    limits:
+      cpu: 1000m
+      memory: 512Mi
+    requests:
+      cpu: 50m
+      memory: 256Mi
+  resourcesControl: true
+version: 5.2.0
+xfn-cert-manager:
+  cert-manager:
+    acmesolver:
+      image:
+        registry: registry.exfo-solutions.loc/images/exfo
+    cainjector:
+      image:
+        registry: registry.exfo-solutions.loc/images/exfo
+      replicaCount: 1
+      resources:
+        limits:
+          cpu: 1000m
+          memory: 256Mi
+        requests:
+          cpu: 10m
+          memory: 128Mi
+    image:
+      registry: registry.exfo-solutions.loc/images/exfo
+    replicaCount: 1
+    resources:
+      limits:
+        cpu: 1000m
+        memory: 256Mi
+      requests:
+        cpu: 10m
+        memory: 128Mi
+    startupapicheck:
+      image:
+        registry: registry.exfo-solutions.loc/images/exfo
+    webhook:
+      image:
+        registry: registry.exfo-solutions.loc/images/exfo
+      replicaCount: 1
+      resources:
+        limits:
+          cpu: 1000m
+          memory: 66Mi
+        requests:
+          cpu: 10m
+          memory: 33Mi
+  global:
+    registryUrl: registry.exfo-solutions.loc/images/exfo
+  trust-manager:
+    app:
+      trust:
+        namespace: sensai
+    defaultPackageImage:
+      registry: registry.exfo-solutions.loc/images/exfo
+    image:
+      registry: registry.exfo-solutions.loc/images/exfo
+    replicaCount: 1
+    resources:
+      limits:
+        cpu: 1000m
+        memory: 132Mi
+      requests:
+        cpu: 10m
+        memory: 66Mi

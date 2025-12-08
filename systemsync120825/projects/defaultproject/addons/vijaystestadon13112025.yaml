@@ -1,0 +1,22 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Addon
+metadata:
+  annotations:
+    rafay.dev/audit_type: BROWSER||Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)
+      AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36
+    rafay.dev/audit_user: vijaysamanthapuri@rafay.co
+  name: vijaystestadon13112025
+  project: defaultproject
+spec:
+  artifact:
+    artifact:
+      catalog: default-helm
+      chartName: tigera-operator
+      chartVersion: v3.31.0
+      valuesPaths:
+      - name: file://artifacts/vijaystestadon13112025/values.yaml
+    type: Helm
+  namespace: default
+  sharing: {}
+  version: v1
+  versionState: active

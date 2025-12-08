@@ -1,0 +1,15 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Addon
+metadata:
+  name: testaddon
+  project: defaultproject
+spec:
+  artifact:
+    artifact:
+      chartName: cert-manager
+      chartVersion: 1.2.4
+    type: Helm
+  namespace: cert-manager
+  sharing: {}
+  version: v2
+  versionState: active

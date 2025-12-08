@@ -1,0 +1,24 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Addon
+metadata:
+  annotations:
+    rafay.dev/audit_type: BROWSER||Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)
+      AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36
+    rafay.dev/audit_user: vijaysamanthapuri@rafay.co
+    rafay.dev/audit_user_group: Organization Read Only,Organization Admins
+  labels:
+    rafay.cni.name: cilium
+    rafay.type: cni
+  name: cilium-custom
+  project: defaultproject
+spec:
+  artifact:
+    artifact:
+      catalog: default-helm
+      chartName: cilium
+      chartVersion: 1.15.7
+    type: Helm
+  namespace: kube-system
+  sharing: {}
+  version: v2
+  versionState: active

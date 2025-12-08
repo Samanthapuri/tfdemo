@@ -1,0 +1,21 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Addon
+metadata:
+  annotations:
+    rafay.dev/audit_type: BROWSER||Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)
+      AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36
+    rafay.dev/audit_user: vijaysamanthapuri@rafay.co
+  name: calico-custom-config
+  project: defaultproject
+spec:
+  artifact:
+    artifact:
+      chartPath:
+        name: file://artifacts/calico-custom-config/calico-custom-config-0.1.0.tgz
+      valuesPaths:
+      - name: file://artifacts/calico-custom-config/calico-custom-config-values.yaml
+    type: Helm
+  namespace: default
+  sharing: {}
+  version: enable-bgp-final3
+  versionState: active

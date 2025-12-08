@@ -1,0 +1,23 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Addon
+metadata:
+  annotations:
+    rafay.dev/audit_type: BROWSER||Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)
+      AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36
+    rafay.dev/audit_user: vijaysamanthapuri@rafay.co
+  name: testgitaddon
+  project: defaultproject
+spec:
+  artifact:
+    artifact:
+      chartPath:
+        name: charts/haproxy
+      repository: helmsample1
+      revision: daa6f80d4865d34c776946f8ecdc882233f19170
+      valuesPaths:
+      - name: charts/haproxy/values.yaml
+    type: Helm
+  namespace: mag3
+  sharing: {}
+  version: v1
+  versionState: active

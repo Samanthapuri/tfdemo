@@ -1,0 +1,21 @@
+bgp:
+  enabled: true
+  config:
+    logSeverityScreen: Info
+    nodeToNodeMeshEnabled: false    
+  peerConfig:
+    nodeSelector: all()
+    peerSelector: route-reflector == 'true'    
+felixConfig:
+  enabled: true
+  data:
+    bpfLogLevel: ""
+    chainInsertMode: append
+    floatingIPs: Disabled
+    healthPort: 9099
+    logSeverityScreen: Info
+    reportingInterval: 0s
+routeReflectors:
+- masterworker-1
+- masterworker-2
+cidr: 10.244.0.0/16

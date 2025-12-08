@@ -1,0 +1,10 @@
+apiVersion: system.k8smgmt.io/v3
+kind: Project
+metadata:
+  name: defaultproject
+spec:
+  clusterResourceQuota: {}
+  default: true
+  defaultClusterNamespaceQuota: {}
+  driftWebhook:
+    enabled: true
