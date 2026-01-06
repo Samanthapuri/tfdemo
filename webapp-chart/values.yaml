@@ -1,15 +1,10 @@
 User:
   name: Vijay
 
-replicaCount: 1
+replicaCount: 2
 
 image:
-  repository: nginx:latest 
-
-agents:
-  image:
-    doNotCheckTag: false
-    tag: 6.-jmx
+  repository: nginx:latest
 
 labels:
   app: web-app
