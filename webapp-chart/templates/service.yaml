@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: {{ .Release.Name }}-service
   annotations:
-    envlabel: '$(#environment["optouttest"].dummyoutput)$'
+    envlabel: {{ .Values.service.annotations.envlabel }}
   labels:
     name: {{ .Values.service.labels.name}}
 spec:

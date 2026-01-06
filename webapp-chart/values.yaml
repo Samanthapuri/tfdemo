@@ -20,6 +20,8 @@ serviceAccount:
   name: demo-sa
 
 service:
+  annotations:
+    envlabel: $(#environment["optouttest"].dummyoutput)$
   protocol: TCP
   type: ClusterIP 
   port: 80
