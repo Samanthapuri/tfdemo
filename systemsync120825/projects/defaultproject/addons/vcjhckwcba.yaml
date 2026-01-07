@@ -1,0 +1,20 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Addon
+metadata:
+  name: vcjhckwcba
+  project: defaultproject
+spec:
+  artifact:
+    artifact:
+      configmap:
+        name: file://vcjhckwcba/alertmanager-configMap.yaml
+      configuration:
+        name: file://vcjhckwcba/alertmanager-configuration.yaml
+      secret:
+        name: file://vcjhckwcba/alertmanager-secret.yaml
+      statefulset:
+        name: file://vcjhckwcba/alertmanager-statefulSet.yaml
+    type: AlertManager
+  sharing: {}
+  version: v1
+  versionState: active
