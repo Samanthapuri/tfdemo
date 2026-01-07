@@ -1,6 +1,7 @@
 apiVersion: infra.k8smgmt.io/v3
 kind: Addon
 metadata:
+  description: bdkwckjbc
   name: vcjhckwcba
   project: defaultproject
 spec:
@@ -16,5 +17,5 @@ spec:
         name: file://vcjhckwcba/alertmanager-statefulSet.yaml
     type: AlertManager
   sharing: {}
-  version: v1
+  version: v2
   versionState: active

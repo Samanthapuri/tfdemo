@@ -10,6 +10,7 @@ inhibit_rules:
   target_match:
     severity: warning
 receivers:
+- name: test
 - name: default-receiver
 - name: rafay-webhook
   webhook_configs:
