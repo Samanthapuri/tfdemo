@@ -1,0 +1,7 @@
+clusterName: "{{{ .global.Rafay.ClusterName }}}"
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Annotations to add to the service account
+  annotations:
+    eks.amazonaws.com/role-arn: arn:aws:iam::679196758854:role/vijaysalbrole
