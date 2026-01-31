@@ -1,0 +1,18 @@
+apiVersion: apps.k8smgmt.io/v3
+kind: Workload
+metadata:
+  name: abcdefghijklmnopqrstuvwxyzabcdefghijklmnppqrstuvwxyzabcdefghijk
+  project: defaultproject
+spec:
+  artifact:
+    artifact:
+      chartPath:
+        name: file://artifacts/abcdefghijklmnopqrstuvwxyzabcdefghijklmnppqrstuvwxyzabcdefghijk/new-0.1.0.tgz
+    options:
+      maxHistory: 10
+      timeout: 5m0s
+    type: Helm
+  namespace: tarun
+  placement:
+    selector: rafay.dev/clusterName=ghafour-demo-rbac
+  version: abcdefghijklmnopqrstuvwxyzabcdefghijklmnppqrstuvwxyzabcdefghijk-v3-202511260911430000

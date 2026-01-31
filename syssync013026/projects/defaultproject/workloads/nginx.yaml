@@ -1,0 +1,16 @@
+apiVersion: apps.k8smgmt.io/v3
+kind: Workload
+metadata:
+  name: nginx
+  project: defaultproject
+spec:
+  artifact:
+    artifact:
+      paths:
+      - name: file://artifacts/nginx/nginx.yaml
+    options: {}
+    type: Yaml
+  namespace: stag
+  placement:
+    selector: rafay.dev/clusterName=satyam-test
+  version: nginx-v2
