@@ -13,4 +13,4 @@ spec:
   namespace: stag
   placement:
     selector: rafay.dev/clusterName=vijaysmks260114
-  version: nginx-v2
+  version: nginx-v3
