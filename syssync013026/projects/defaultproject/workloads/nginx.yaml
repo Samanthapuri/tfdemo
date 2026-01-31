@@ -12,5 +12,5 @@ spec:
     type: Yaml
   namespace: stag
   placement:
-    selector: rafay.dev/clusterName=satyam-test
+    selector: rafay.dev/clusterName=vijaysmks260114
   version: nginx-v2
