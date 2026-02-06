@@ -1,0 +1,14 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Addon
+metadata:
+  name: cilium
+  project: defaultproject
+spec:
+  artifact:
+    artifact:
+      catalog: default-helm
+      chartName: cilium
+      chartVersion: 1.17.12
+    type: Helm
+  namespace: kube-system
+  sharing: {}
