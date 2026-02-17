@@ -3,3 +3,4 @@ settings:
   interruptionQueue: {{{ .global.Rafay.ClusterName }}}
 serviceAccount:
   create: false
+  name: "karpenter"
