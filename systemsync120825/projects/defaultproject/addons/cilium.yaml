@@ -1,6 +1,9 @@
 apiVersion: infra.k8smgmt.io/v3
 kind: Addon
 metadata:
+  labels:
+    rafay.cni.name: cilium
+    rafay.type: cni
   name: cilium
   project: defaultproject
 spec:
@@ -14,5 +17,5 @@ spec:
     type: Helm
   namespace: kube-system
   sharing: {}
-  version: v1
+  version: v2
   versionState: active

@@ -67,7 +67,6 @@ hubble:
     serviceMonitor:
       enabled: true
   ui:
-    backend:
     frontend:
       server:
         ipv6:
