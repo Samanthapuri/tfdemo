@@ -1,0 +1,16 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Addon
+metadata:
+  name: kyverno
+  project: defaultproject
+spec:
+  artifact:
+    artifact:
+      catalog: default-helm
+      chartName: kyverno
+      chartVersion: 3.7.0
+    type: Helm
+  namespace: kube-system
+  sharing: {}
+  version: 3.7.0
+  versionState: active
