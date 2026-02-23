@@ -2,7 +2,7 @@
 resource "null_resource" "cluster" {
 
   provisioner "local-exec" {
-    command = "sleep 30"
+    command = "sleep 1"
   }
 }
 
