@@ -1,0 +1,19 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Addon
+metadata:
+  name: alertmanager-addon
+  project: defaultproject
+spec:
+  artifact:
+    artifact:
+      configmap:
+        name: file://alertmanager-addon/alertmanager-configMap.yaml
+      configuration:
+        name: file://alertmanager-addon/alertmanager-configuration.yaml
+      secret:
+        name: file://alertmanager-addon/alertmanager-secret.yaml
+      statefulset:
+        name: file://alertmanager-addon/alertmanager-statefulSet.yaml
+    type: AlertManager
+  sharing: {}
+  versionState: active
