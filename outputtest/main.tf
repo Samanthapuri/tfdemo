@@ -1,10 +1,10 @@
 variable "name" {
 }
 resource "null_resource" "example" {
-  triggers = {
-    timestamp = timestamp()
-  }
+triggers = {
+always_run = “${timestamp()}”
+}
   provisioner "local-exec" {
-    command = "sleep 300"
+    command = "sleep 600"
   }
 }
