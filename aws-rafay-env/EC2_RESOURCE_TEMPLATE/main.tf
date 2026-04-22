@@ -37,3 +37,23 @@ resource "aws_instance" "example" {
     email = "vijaysamanthapuri@rafay.co"
   }
 }
+
+resource "local_file" "foo" {
+  content  = "foo!"
+  filename = "/home/stop-start-ec2-instances.sh"
+}
+
+resource "null_resource" "example" {
+  count = var.stop_intances ? 1 : 0
+  triggers = {
+    timestamp = timestamp()
+  }
+  provisioner "local-exec" {
+    command = <<EOT
+    curl https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip -o awscliv2.zip
+    unzip awscliv2.zip
+    sudo ./aws/install
+    aws ec2 stop-instances --instance-ids ${join(" ", aws_instance.example.*.id)} --region us-west-2
+    EOT
+  }
+}
