@@ -41,7 +41,6 @@ resource "aws_instance" "example" {
 
 
 resource "null_resource" "example" {
-  count = var.stop_intances == "true" ? 1 : 0
   triggers = {
     timestamp = timestamp()
   }
