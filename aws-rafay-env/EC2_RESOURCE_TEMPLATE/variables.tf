@@ -28,3 +28,7 @@ default = {
 }
 }
 }
+
+variable "stop_intances" {
+default = false
+}
