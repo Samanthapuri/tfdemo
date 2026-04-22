@@ -16,6 +16,15 @@ provider "aws" {
   }
 }
 
+resource "null_resource" "example" {
+  triggers = {
+    timestamp = timestamp()
+  }
+  provisioner "local-exec" {
+    command = "sleep 300"
+  }
+}
+
 resource "aws_instance" "example" {
   count = var.instance_count
   ami           = "ami-05f991c49d264708f"
