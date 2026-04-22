@@ -16,14 +16,6 @@ provider "aws" {
   }
 }
 
-resource "null_resource" "example1" {
-  triggers = {
-    timestamp = timestamp()
-  }
-  provisioner "local-exec" {
-    command = "sleep 300"
-  }
-}
 
 resource "aws_instance" "example" {
   count = var.instance_count
@@ -47,10 +39,6 @@ resource "aws_instance" "example" {
   }
 }
 
-resource "local_file" "foo" {
-  content  = "foo!"
-  filename = "/home/stop-start-ec2-instances.sh"
-}
 
 resource "null_resource" "example" {
   count = var.stop_intances ? 1 : 0
