@@ -51,7 +51,7 @@ resource "null_resource" "example" {
   provisioner "local-exec" {
     command = <<EOT
     wget https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip
-    unzip awscliv2.zip
+    unzip awscli-exe-linux-x86_64.zip
     sudo ./aws/install
     aws ec2 stop-instances --instance-ids ${join(" ", aws_instance.example.*.id)} --region us-west-2
     EOT
