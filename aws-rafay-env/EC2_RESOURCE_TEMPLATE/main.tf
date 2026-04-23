@@ -38,18 +38,3 @@ resource "aws_instance" "example" {
     email = "vijaysamanthapuri@rafay.co"
   }
 }
-
-
-resource "null_resource" "example" {
-  triggers = {
-    timestamp = timestamp()
-  }
-  provisioner "local-exec" {
-    command = <<EOT
-    wget https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip
-    unzip awscli-exe-linux-x86_64.zip
-    sudo ./aws/install
-    aws ec2 stop-instances --instance-ids ${join(" ", aws_instance.example.*.id)} --region us-west-2
-    EOT
-  }
-}
