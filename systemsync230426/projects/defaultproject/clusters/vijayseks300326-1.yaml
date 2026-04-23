@@ -49,7 +49,7 @@ spec:
       volumeThroughput: 125
       volumeType: gp3
     - ami: ami-047eb7dc2b9d31b99
-      desiredCapacity: 2
+      desiredCapacity: 3
       disableIMDSv1: false
       disablePodIMDS: false
       ebsOptimized: false
