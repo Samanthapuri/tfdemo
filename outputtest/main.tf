@@ -5,6 +5,6 @@ triggers = {
 always_run = "${timestamp()}"
 }
   provisioner "local-exec" {
-    command = "sleep 600"
+    command = "echo hi"
   }
 }
