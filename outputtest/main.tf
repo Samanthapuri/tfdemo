@@ -8,3 +8,7 @@ always_run = "${timestamp()}"
     command = "echo hi"
   }
 }
+
+output "test" {
+value = "test"
+}
