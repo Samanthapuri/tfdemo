@@ -1,0 +1,6 @@
+apiVersion: v2
+name: bad-uninstall-hook
+description: Sample chart that fails uninstall due to failing pre-delete hook
+type: application
+version: 0.1.0
+appVersion: "1.0"
