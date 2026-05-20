@@ -16,7 +16,7 @@ serviceAccount:
 
 service:
   annotations:
-    envlabel: $(#environment["optouttest"].dummyoutput)$
+    envlabel: test
   protocol: TCP
   type: ClusterIP 
   port: 80
