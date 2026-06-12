@@ -3,7 +3,7 @@ kind: Cluster
 metadata:
   labels:
     test: test1
-  name: rafay-vijayseks260612-2
+  name: rafay-vijayseks260612-3
   project: defaultproject
 spec:
   blueprintConfig:
@@ -24,28 +24,23 @@ spec:
       withOIDC: true
     managedNodeGroups:
     - amiFamily: AmazonLinux2023
-      availabilityZones:
-      - us-west-2a
-      - us-west-2b
-      - us-west-2c
       desiredCapacity: 1
-      iam:
-        withAddonPolicies:
-          autoScaler: true
-          imageBuilder: true
-      instanceTypes:
-      - t3.xlarge
+      instanceType: t3.xlarge
       maxSize: 1
       minSize: 1
-      name: ng-2
+      name: al2023-3
       privateNetworking: true
+      subnets:
+      - subnet-04105bfd633ad96d1
+      - subnet-0e2df0ce40a143885
+      - subnet-08cf5380224345cfb
       tags:
         email: vijaysamanthapuri@rafay.co
         env: cs-demo
-      volumeSize: 80
-      volumeType: gp3
+      volumeSize: 100
+      volumetype: gp3
     metadata:
-      name: rafay-vijayseks260612-2
+      name: rafay-vijayseks260612-3
       region: us-west-2
       tags:
         email: vijaysamanthapuri@rafay.co
@@ -62,6 +57,13 @@ spec:
         gateway: Single
       subnets:
         private:
+          subnet-08cf5380224345cfb:
+            id: subnet-08cf5380224345cfb
+          subnet-04105bfd633ad96d1:
+            id: subnet-04105bfd633ad96d1
+          subnet-0e2df0ce40a143885:
+            id: subnet-0e2df0ce40a143885
+        public:
           subnet-052fc22d229870c0c:
             id: subnet-052fc22d229870c0c
           subnet-098780e71d7753bbc:
