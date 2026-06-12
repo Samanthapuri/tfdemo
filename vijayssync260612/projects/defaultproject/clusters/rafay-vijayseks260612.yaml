@@ -22,19 +22,6 @@ spec:
       version: latest
     iam:
       withOIDC: true
-    managedNodeGroups:
-    - amiFamily: AmazonLinux2023
-      desiredCapacity: 1
-      instanceType: t3.xlarge
-      maxSize: 1
-      minSize: 1
-      name: al2023-3
-      privateNetworking: false
-      tags:
-        email: vijaysamanthapuri@rafay.co
-        env: cs-demo
-      volumeSize: 100
-      volumetype: gp3
     metadata:
       name: rafay-vijayseks260612
       region: us-west-2
