@@ -22,6 +22,28 @@ spec:
       version: latest
     iam:
       withOIDC: true
+    managedNodeGroups:
+    - amiFamily: AmazonLinux2023
+      availabilityZones:
+      - us-west-2a
+      - us-west-2b
+      - us-west-2c
+      desiredCapacity: 1
+      iam:
+        withAddonPolicies:
+          autoScaler: true
+          imageBuilder: true
+      instanceTypes:
+      - t3.xlarge
+      maxSize: 1
+      minSize: 1
+      name: ng-2
+      privateNetworking: true
+      tags:
+        email: vijaysamanthapuri@rafay.co
+        env: cs-demo
+      volumeSize: 80
+      volumeType: gp3
     metadata:
       name: rafay-vijayseks260612-2
       region: us-west-2
