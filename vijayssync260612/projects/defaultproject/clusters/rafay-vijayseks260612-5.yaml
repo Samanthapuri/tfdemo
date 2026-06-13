@@ -3,7 +3,7 @@ kind: Cluster
 metadata:
   labels:
     test: test1
-  name: rafay-vijayseks260612-3
+  name: rafay-vijayseks260612-5
   project: defaultproject
 spec:
   blueprintConfig:
@@ -40,7 +40,7 @@ spec:
       volumeSize: 100
       volumetype: gp3
     metadata:
-      name: rafay-vijayseks260612-3
+      name: rafay-vijayseks260612-5
       region: us-west-2
       tags:
         email: vijaysamanthapuri@rafay.co
@@ -53,8 +53,6 @@ spec:
       clusterEndpoints:
         privateAccess: true
         publicAccess: true
-      nat:
-        gateway: Single
       subnets:
         private:
           subnet-08cf5380224345cfb:
