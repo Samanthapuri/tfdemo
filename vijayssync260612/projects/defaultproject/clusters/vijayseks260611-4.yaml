@@ -2,7 +2,7 @@ apiVersion: infra.k8smgmt.io/v3
 kind: Cluster
 metadata:
   labels:
-    test: test1
+    test: test
   name: vijayseks260611-4
   project: defaultproject
 spec:
