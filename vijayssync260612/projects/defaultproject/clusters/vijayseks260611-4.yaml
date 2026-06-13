@@ -39,6 +39,7 @@ spec:
       tags:
         email: vijaysamanthapuri@rafay.co
         env: cs-demo
+        testtag: testvalue
       version: "1.33"
     network:
       cni:
