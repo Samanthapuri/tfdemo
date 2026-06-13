@@ -17,9 +17,7 @@ spec:
     - name: kube-proxy
       version: latest
     - name: vpc-cni
-      version: latest
-    - name: aws-ebs-csi-driver
-      version: latest      
+      version: latest     
     iam:
       withOIDC: true
     managedNodeGroups:
