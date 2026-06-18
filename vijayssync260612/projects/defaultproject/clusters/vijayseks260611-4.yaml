@@ -26,13 +26,14 @@ spec:
     - amiFamily: AmazonLinux2023
       desiredCapacity: 1
       instanceType: t3.xlarge
-      maxSize: 1
-      minSize: 1
+      maxSize: 2
+      minSize: 0
       name: al2023-3
       privateNetworking: false
       tags:
         email: vijaysamanthapuri@rafay.co
         env: cs-demo
+        test: test1
       volumeSize: 100
       volumetype: gp3
     metadata:
