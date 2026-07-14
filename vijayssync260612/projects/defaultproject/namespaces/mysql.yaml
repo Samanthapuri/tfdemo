@@ -1,0 +1,17 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Namespace
+metadata:
+  name: mysql
+  project: defaultproject
+spec:
+  limitRange:
+    container: {}
+    pod: {}
+  namespaceMeshPolicyParams: {}
+  placement:
+    labels:
+    - key: rafay.dev/clusterName
+      value: destinationcluster
+    - key: rafay.dev/clusterName
+      value: sourceclustervijays
+  resourceQuotas: {}

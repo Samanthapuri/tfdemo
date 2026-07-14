@@ -1,0 +1,19 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Namespace
+metadata:
+  name: testns
+  project: defaultproject
+spec:
+  limitRange:
+    container: {}
+    pod: {}
+  namespaceMeshPolicyParams: {}
+  placement:
+    labels:
+    - key: rafay.dev/clusterName
+      value: vijays-eks-test2
+    - key: rafay.dev/clusterName
+      value: vijayseks04102024
+    - key: rafay.dev/clusterName
+      value: vijayseks121220242
+  resourceQuotas: {}

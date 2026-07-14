@@ -1,0 +1,17 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Namespace
+metadata:
+  name: gpu-operator
+  project: defaultproject
+spec:
+  limitRange:
+    container: {}
+    pod: {}
+  namespaceMeshPolicyParams: {}
+  placement:
+    labels:
+    - key: rafay.dev/clusterName
+      value: vijaymkstest
+    - key: rafay.dev/clusterName
+      value: vijayseks121220242
+  resourceQuotas: {}

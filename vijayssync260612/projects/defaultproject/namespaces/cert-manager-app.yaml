@@ -1,0 +1,19 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Namespace
+metadata:
+  name: cert-manager-app
+  project: defaultproject
+spec:
+  limitRange:
+    container: {}
+    pod: {}
+  namespaceMeshPolicyParams: {}
+  placement:
+    labels:
+    - key: rafay.dev/clusterName
+      value: gkecertmanagertest
+    - key: rafay.dev/clusterName
+      value: gcpcertmanagerupgardetest
+    - key: rafay.dev/clusterName
+      value: vijayspermissiontest
+  resourceQuotas: {}

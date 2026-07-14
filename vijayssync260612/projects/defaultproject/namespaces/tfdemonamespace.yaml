@@ -1,0 +1,27 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Namespace
+metadata:
+  name: tfdemonamespace
+  project: defaultproject
+spec:
+  limitRange: {}
+  namespaceMeshPolicyParams: {}
+  placement:
+    labels:
+    - key: rafay.dev/clusterName
+      value: vijaysmks260209
+  resourceQuotas:
+    configMaps: "50"
+    cpuLimits: 600000m
+    cpuRequests: 560000m
+    gpuLimits: "2"
+    memoryLimits: 1740800Mi
+    memoryRequests: 1536000Mi
+    persistentVolumeClaims: "50"
+    pods: "200"
+    replicationControllers: "10"
+    secrets: "500"
+    services: "70"
+    servicesLoadBalancers: "20"
+    servicesNodePorts: "0"
+    storageRequests: 900Gi

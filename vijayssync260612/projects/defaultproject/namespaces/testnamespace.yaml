@@ -1,0 +1,9 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Namespace
+metadata:
+  name: testnamespace
+  project: defaultproject
+spec:
+  artifact:
+    path:
+      name: file://testnamespace/testnamespace.yaml

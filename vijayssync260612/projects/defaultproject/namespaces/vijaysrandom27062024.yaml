@@ -1,0 +1,17 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Namespace
+metadata:
+  name: vijaysrandom27062024
+  project: defaultproject
+spec:
+  limitRange:
+    container: {}
+    pod: {}
+  namespaceMeshPolicyParams: {}
+  placement:
+    labels:
+    - key: rafay.dev/clusterName
+      value: vijaysrookceph
+    - key: rafay.dev/clusterName
+      value: vijayseks15042024
+  resourceQuotas: {}

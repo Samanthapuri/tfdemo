@@ -1,0 +1,19 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Namespace
+metadata:
+  labels:
+    test: test1
+  name: istio-system
+  project: defaultproject
+spec:
+  limitRange:
+    container: {}
+    pod: {}
+  namespaceMeshPolicyParams: {}
+  placement:
+    labels:
+    - key: rafay.dev/clusterName
+      value: rookcephtest
+    - key: rafay.dev/clusterName
+      value: vijays03172025
+  resourceQuotas: {}

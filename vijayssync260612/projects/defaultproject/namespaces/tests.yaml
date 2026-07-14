@@ -1,0 +1,19 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Namespace
+metadata:
+  name: tests
+  project: defaultproject
+spec:
+  limitRange:
+    container: {}
+    pod: {}
+  namespaceMeshPolicyParams: {}
+  placement:
+    labels:
+    - key: rafay.dev/clusterName
+      value: testclustermks
+    - key: rafay.dev/clusterName
+      value: vijaysrookcephnew
+    - key: rafay.dev/clusterName
+      value: vijayseks121220242
+  resourceQuotas: {}

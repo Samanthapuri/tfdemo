@@ -1,0 +1,24 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Namespace
+metadata:
+  name: kube-system
+  project: defaultproject
+spec:
+  limitRange:
+    container: {}
+    pod: {}
+  namespaceMeshPolicyParams: {}
+  networkPolicyParams:
+    networkPolicyEnabled: true
+    policies:
+    - name: newpolicy
+      version: v1
+  placement:
+    labels:
+    - key: rafay.dev/clusterName
+      value: certtestvijays1
+    - key: rafay.dev/clusterName
+      value: akstestvijays1901
+    - key: rafay.dev/clusterName
+      value: vijayseks29032024
+  resourceQuotas: {}

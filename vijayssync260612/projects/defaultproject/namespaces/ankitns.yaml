@@ -1,0 +1,25 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Namespace
+metadata:
+  name: ankitns
+  project: defaultproject
+spec:
+  limitRange:
+    container: {}
+    pod: {}
+  namespaceMeshPolicyParams: {}
+  placement:
+    labels:
+    - key: rafay.dev/clusterName
+      value: vijayseks15042024
+    - key: rafay.dev/clusterName
+      value: vijaysrookceph
+    - key: rafay.dev/clusterName
+      value: rookcephtest
+    - key: rafay.dev/clusterName
+      value: vijaysrookceph1
+    - key: rafay.dev/clusterName
+      value: ankit
+    - key: rafay.dev/clusterName
+      value: vijaystestcluster
+  resourceQuotas: {}

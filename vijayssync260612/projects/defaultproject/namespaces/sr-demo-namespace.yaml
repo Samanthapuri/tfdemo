@@ -1,0 +1,17 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Namespace
+metadata:
+  labels:
+    kubernetes.io/metadata.name: sr-demo-namespace
+  name: sr-demo-namespace
+  project: defaultproject
+spec:
+  drift:
+    action: Deny
+    enabled: true
+  namespaceMeshPolicyParams: {}
+  placement:
+    labels:
+    - key: rafay.dev/clusterName
+      value: rafay-jdev-lab
+  resourceQuotas: {}
