@@ -1,0 +1,32 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Namespace
+metadata:
+  annotations:
+    meta.helm.sh/release-name: nsaddon
+    meta.helm.sh/release-namespace: default
+  labels:
+    app.kubernetes.io/managed-by: Helm
+    k8smgmt.io/project: defaultproject
+    kubernetes.io/metadata.name: my-namespace
+    rep-addon: nsaddon
+    rep-cluster: kggpwjk
+    rep-cluster-name: vijaysmks260630
+    rep-drift-reconcillation: disabled
+    rep-organization: 6knr742
+    rep-partner: rx28oml
+    rep-placement: kvjxqry
+    rep-project: d2wpz6k
+    rep-project-name: defaultproject
+    rep-workloadid: krdzg49
+  name: my-namespace
+  project: defaultproject
+spec:
+  drift:
+    action: Deny
+    enabled: true
+  namespaceMeshPolicyParams: {}
+  placement:
+    labels:
+    - key: rafay.dev/clusterName
+      value: vijaysmks260630
+  resourceQuotas: {}
