@@ -10,5 +10,5 @@ always_run = "${timestamp()}"
 }
 
 output "test2" {
-value = "test3"
+value = "test2"
 }
