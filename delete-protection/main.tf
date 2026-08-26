@@ -1,18 +1,18 @@
 variable "destroy" {
 
-default = false
+default = "false"
 
 }
 
 resource "null_resource" "protected" {
-  count = var.destroy ? 0 : 1
+  count = var.destroy == "false" ? 0 : 1
   lifecycle {
     prevent_destroy = true
   }
 }
 
 resource "null_resource" "unprotected" {
-  count = var.destroy ? 1 : 0
+  count = var.destroy == "false" ? 1 : 0
   lifecycle {
     prevent_destroy = false
   }
