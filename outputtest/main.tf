@@ -6,5 +6,5 @@ data "external" "example" {
 }
 
 output "test" {
-  value = data.external.example.result["result"]
+  value = data.external.example.result
 }
