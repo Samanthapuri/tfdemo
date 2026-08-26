@@ -1,8 +1,6 @@
 variable "name1" {
 }
-variable "destroy" {
-default = false
-}
+
 resource "null_resource" "example" {
 triggers = {
 always_run = "${timestamp()}"
@@ -11,7 +9,7 @@ always_run = "${timestamp()}"
     command = "echo hi"
   }
   lifecycle {
-    prevent_destroy = var.destroy
+    prevent_destroy = false
   }
 }
 
