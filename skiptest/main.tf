@@ -7,6 +7,9 @@ always_run = "${timestamp()}"
   provisioner "local-exec" {
     command = "echo hi"
   }
+  lifecycle {
+    prevent_destroy = true
+  }
 }
 
 output "test1" {
