@@ -1,10 +1,14 @@
-variable "word"{
-default = "test"
+variable "name" {
 }
-data "external" "example" {
-  program = ["bash", "-c", "echo ${var.word}"]
+resource "null_resource" "example" {
+triggers = {
+always_run = "${timestamp()}"
+}
+  provisioner "local-exec" {
+    command = "echo hi"
+  }
 }
 
 output "test" {
-  value = data.external.example.result
+value = "test"
 }
