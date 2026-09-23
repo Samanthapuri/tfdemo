@@ -12,5 +12,5 @@ spec:
   endpoint: https://github.com/Samanthapuri/workloadrepo1.git
   options: {}
   secret:
-    name: file://artifacts/workloadrepo1/sealed-secret.yaml
+    name: file://artifacts/workloadrepo2/sealed-secret.yaml
   type: Git
