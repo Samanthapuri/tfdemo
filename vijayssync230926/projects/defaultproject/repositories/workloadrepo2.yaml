@@ -1,0 +1,16 @@
+apiVersion: integrations.k8smgmt.io/v3
+kind: Repository
+metadata:
+  name: workloadrepo2
+  project: defaultproject
+spec:
+  agents:
+  - name: eksagent5525
+  credentials:
+    password: sealed://credentials.password
+    username: samanthapuri
+  endpoint: https://github.com/Samanthapuri/workloadrepo1.git
+  options: {}
+  secret:
+    name: file://artifacts/workloadrepo1/sealed-secret.yaml
+  type: Git
