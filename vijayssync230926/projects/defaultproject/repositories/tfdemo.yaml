@@ -1,0 +1,16 @@
+apiVersion: integrations.k8smgmt.io/v3
+kind: Repository
+metadata:
+  name: tfdemo
+  project: defaultproject
+spec:
+  agents:
+  - name: vijayseks210926
+  credentials:
+    password: sealed://credentials.password
+    username: samanthapuri
+  endpoint: https://github.com/Samanthapuri/tfdemo.git
+  options: {}
+  secret:
+    name: file://artifacts/tfdemo/sealed-secret.yaml
+  type: Git

@@ -1,0 +1,16 @@
+apiVersion: integrations.k8smgmt.io/v3
+kind: Repository
+metadata:
+  name: idp-gs6874-em
+  project: defaultproject
+spec:
+  agents:
+  - name: eksagent140826
+  credentials:
+    password: sealed://credentials.password
+    username: samanthapuri
+  endpoint: https://github.com/Samanthapuri/fm_private_repo.git
+  options: {}
+  secret:
+    name: file://artifacts/idp-gs6874-em/sealed-secret.yaml
+  type: Git

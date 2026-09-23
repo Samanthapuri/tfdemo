@@ -1,0 +1,16 @@
+apiVersion: integrations.k8smgmt.io/v3
+kind: Repository
+metadata:
+  name: rafaysync230426
+  project: defaultproject
+spec:
+  agents:
+  - name: vijayseks010426
+  credentials:
+    password: sealed://credentials.password
+    username: samanthapuri
+  endpoint: https://github.com/Samanthapuri/rafaysync.git
+  options: {}
+  secret:
+    name: file://artifacts/rafaysync230426/sealed-secret.yaml
+  type: Git

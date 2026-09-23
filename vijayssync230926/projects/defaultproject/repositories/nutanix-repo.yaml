@@ -1,0 +1,14 @@
+apiVersion: integrations.k8smgmt.io/v3
+kind: Repository
+metadata:
+  name: nutanix-repo
+  project: defaultproject
+spec:
+  credentials:
+    password: sealed://credentials.password
+    username: vijays-rafay
+  endpoint: https://github.com/vijays-rafay/nutanix-cluster.git
+  options: {}
+  secret:
+    name: file://artifacts/nutanix-repo/sealed-secret.yaml
+  type: Git

@@ -1,0 +1,11 @@
+apiVersion: integrations.k8smgmt.io/v3
+kind: Repository
+metadata:
+  name: aws-load-balancer-controller
+  project: defaultproject
+spec:
+  agents:
+  - {}
+  endpoint: https://aws.github.io/eks-charts
+  options: {}
+  type: Helm

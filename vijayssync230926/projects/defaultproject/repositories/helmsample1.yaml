@@ -1,0 +1,13 @@
+apiVersion: integrations.k8smgmt.io/v3
+kind: Repository
+metadata:
+  name: helmsample1
+  project: defaultproject
+spec:
+  credentials:
+    password: sealed://credentials.password
+  endpoint: https://github.com/Samanthapuri/helmrepo.git
+  options: {}
+  secret:
+    name: file://artifacts/helmsample1/sealed-secret.yaml
+  type: Git
