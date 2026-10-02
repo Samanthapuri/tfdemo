@@ -4,6 +4,7 @@ metadata:
   name: system-sync
   project: defaultproject
 spec:
+  active: true
   stages:
   - config:
       destinationRepo: {}
