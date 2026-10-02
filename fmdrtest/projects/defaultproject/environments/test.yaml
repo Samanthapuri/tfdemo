@@ -1,0 +1,23 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: Environment
+metadata:
+  labels:
+    envtemplate: mount
+  name: test
+  project: defaultproject
+spec:
+  agents:
+  - name: test-agent
+  template:
+    name: outputtest1
+    version: v4
+    versionState: unspecified
+  variables:
+  - name: name
+    options:
+      displayMetadata: {}
+      override:
+        type: allowed
+      required: true
+    value: test
+    valueType: text
