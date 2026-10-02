@@ -1,0 +1,30 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: EnvironmentTemplate
+metadata:
+  labels:
+    envtemplate: mount
+  name: outputtest1
+  project: defaultproject
+spec:
+  allowScheduleOverrides: false
+  resources:
+  - kind: resourcetemplate
+    name: outputtest1
+    resourceOptions:
+      version: v2
+    type: dynamic
+  variables:
+  - name: email
+    options:
+      override:
+        type: allowed
+    value: vijaysamanthapuri@gmail.com
+    valueType: text
+  - name: delete-protection
+    options:
+      override:
+        type: notallowed
+    value: "true"
+    valueType: json
+  version: v4
+  versionState: draft
