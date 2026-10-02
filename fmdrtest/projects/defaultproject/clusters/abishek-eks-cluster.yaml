@@ -4,7 +4,7 @@ metadata:
   name: abishek-eks-cluster
   project: defaultproject
   labels:
-    testkey: testval
+    testkey: testval1
 spec:
   blueprintConfig:
     name: test
