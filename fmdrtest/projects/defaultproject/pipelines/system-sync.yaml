@@ -1,0 +1,31 @@
+apiVersion: gitops.k8smgmt.io/v3
+kind: Pipeline
+metadata:
+  name: system-sync
+  project: defaultproject
+spec:
+  stages:
+  - config:
+      destinationRepo: {}
+      gitToSystemSync: true
+      includedResources:
+      - name: '*'
+      sourceAsDestination: true
+      sourceRepo:
+        path:
+          name: fmdrtest
+        repository: system-sync
+        revision: main
+      systemToGitSync: true
+    name: system-sync
+    type: SystemSync
+  triggers:
+  - config:
+      repo:
+        paths:
+        - name: fmdrtest
+        provider: Github
+        repository: system-sync
+        revision: main
+    name: trigger
+    type: Webhook

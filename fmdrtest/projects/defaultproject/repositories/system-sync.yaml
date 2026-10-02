@@ -1,0 +1,16 @@
+apiVersion: integrations.k8smgmt.io/v3
+kind: Repository
+metadata:
+  name: system-sync
+  project: defaultproject
+spec:
+  agents:
+  - name: test-agent
+  credentials:
+    password: sealed://credentials.password
+    username: samanthapuri
+  endpoint: https://github.com/Samanthapuri/tfdemo.git
+  options: {}
+  secret:
+    name: file://artifacts/system-sync/sealed-secret.yaml
+  type: Git

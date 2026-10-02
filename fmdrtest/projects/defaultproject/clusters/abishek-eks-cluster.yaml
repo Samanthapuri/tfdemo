@@ -1,0 +1,61 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Cluster
+metadata:
+  name: abishek-eks-cluster
+  project: defaultproject
+spec:
+  blueprintConfig:
+    name: test
+    version: v1
+  cloudCredentials: abishek-aws
+  config:
+    accessConfig:
+      authenticationMode: API_AND_CONFIG_MAP
+      bootstrapClusterCreatorAdminPermissions: true
+    addons:
+    - name: coredns
+      version: v1.11.4-eksbuild.60
+    - name: vpc-cni
+      version: v1.22.4-eksbuild.3
+    - name: kube-proxy
+      version: v1.31.14-eksbuild.36
+    - name: aws-ebs-csi-driver
+      version: latest
+    addonsConfig: {}
+    autoModeConfig: {}
+    managedNodeGroups:
+    - amiFamily: AmazonLinux2
+      desiredCapacity: 2
+      iam:
+        withAddonPolicies:
+          autoScaler: true
+      instanceTypes:
+      - t3.xlarge
+      maxSize: 2
+      minSize: 0
+      name: ng-1
+      ssh:
+        allow: true
+        publicKeyName: aws-abi-key
+      version: "1.32"
+      volumeSize: 100
+      volumeType: gp3
+    metadata:
+      name: abishek-eks-cluster
+      region: us-west-2
+      tags:
+        email: abishek@rafay.co
+        env: on-prem
+      version: "1.33"
+    network:
+      cni:
+        name: aws-cni
+    vpc:
+      cidr: 192.168.0.0/16
+      clusterEndpoints:
+        privateAccess: true
+        publicAccess: true
+      nat:
+        gateway: Single
+  proxyConfig: {}
+  type: aws-eks

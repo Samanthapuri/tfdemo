@@ -1,0 +1,11 @@
+apiVersion: gitops.k8smgmt.io/v3
+kind: Agent
+metadata:
+  name: test-agent
+  project: defaultproject
+spec:
+  active: true
+  cluster:
+    name: abishek-eks-cluster
+  type: Cluster
+  version: r4.2.0
