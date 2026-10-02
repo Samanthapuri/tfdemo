@@ -1,10 +1,10 @@
 apiVersion: infra.k8smgmt.io/v3
 kind: Cluster
 metadata:
-  name: abishek-eks-cluster
-  project: defaultproject
   labels:
     testkey: testval1
+  name: abishek-eks-cluster
+  project: defaultproject
 spec:
   blueprintConfig:
     name: test

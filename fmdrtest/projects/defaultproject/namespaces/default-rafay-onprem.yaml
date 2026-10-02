@@ -3,4 +3,6 @@ kind: Namespace
 metadata:
   name: default-rafay-onprem
   project: defaultproject
-spec: {}
+spec:
+  namespaceMeshPolicyParams: {}
+  resourceQuotas: {}
