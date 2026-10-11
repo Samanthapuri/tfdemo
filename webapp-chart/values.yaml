@@ -1,5 +1,5 @@
 User:
-  name: Vijay
+  name: cherry
 
 replicaCount: 2
 
@@ -26,6 +26,11 @@ service:
 deployment:
   port: 80
 
-http_proxy: ""
-https_proxy: ""
-no_proxy: ""
+ingress:
+  enabled: true
+  className: alb
+  annotations: {}
+  path: /cherry
+  pathType: Prefix
+    # alb.ingress.kubernetes.io/subnets: subnet-aaa,subnet-bbb
+    # alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:...

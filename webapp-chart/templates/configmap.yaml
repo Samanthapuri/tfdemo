@@ -11,3 +11,27 @@ data:
 kind: ConfigMap
 metadata:
   name: index-cm
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-nginx-conf
+data:
+  default.conf: |
+    server {
+      listen {{ .Values.deployment.port }};
+
+      location = /{{ .Values.User.name }} {
+        return 301 /{{ .Values.User.name }}/;
+      }
+
+      location /{{ .Values.User.name }}/ {
+        alias /usr/share/nginx/html/;
+        index index.html;
+      }
+
+      location / {
+        root /usr/share/nginx/html;
+        index index.html;
+      }
+    }

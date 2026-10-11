@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: test-deployment
-  {{- template "mychart.labels" }}
 spec:
   replicas: {{ .Values.replicaCount}}
   selector:
@@ -22,7 +21,13 @@ spec:
         volumeMounts:
           - name: index-cm
             mountPath: /usr/share/nginx/html
+          - name: nginx-conf
+            mountPath: /etc/nginx/conf.d/default.conf
+            subPath: default.conf
       volumes:
       - name: index-cm
         configMap:
           name: index-cm
+      - name: nginx-conf
+        configMap:
+          name: {{ .Release.Name }}-nginx-conf
