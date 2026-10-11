@@ -1,1 +1,39 @@
+User:
+  name: cherry
 
+replicaCount: 2
+
+image:
+  repository: nginx:latest
+
+labels:
+  app: web-app
+  type: frontend
+
+serviceAccount:
+  enabled: true
+  name: demo-sa
+
+service:
+  annotations:
+    envlabel: test
+  protocol: TCP
+  type: ClusterIP
+  port: 80
+  labels:
+    name: webapp-service
+
+deployment:
+  port: 80
+
+ingress:
+  enabled: true
+  className: alb
+  annotations:
+    alb.ingress.kubernetes.io/group.name: shared-alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/healthcheck-path: /
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-west-2:679196758854:certificate/e1caacd0-60bf-4acb-90ef-0113577f1456
+  path: /cherry
+  pathType: Prefix
