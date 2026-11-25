@@ -8,7 +8,7 @@ image:
 
 labels:
   app: web-app
-  type: #{resource["outpttest"].output.test.value}#
+  type: "$(#environment.outputtest1.test)$"
 
 serviceAccount:
   enabled: true
