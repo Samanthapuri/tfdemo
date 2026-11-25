@@ -8,7 +8,7 @@ image:
 
 labels:
   app: web-app
-  type: frontend
+  type: #{resource["outpttest"].output.test.value}#
 
 serviceAccount:
   enabled: true
