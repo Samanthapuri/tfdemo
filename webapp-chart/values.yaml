@@ -8,7 +8,7 @@ image:
 
 labels:
   app: web-app
-  type: "$(#environment.name}$"
+  type: "$(#environment[\"outputtest1\"].test)$"
 
 serviceAccount:
   enabled: true
