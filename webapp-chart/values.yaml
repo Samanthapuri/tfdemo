@@ -9,6 +9,7 @@ image:
 labels:
   app: web-app
   type: $(#environment.outputtest1.test)$
+  anotherlabel: $(#environment.outputtest1.test)$
 
 serviceAccount:
   enabled: true
